@@ -156,7 +156,8 @@ class HomeController extends Controller
     public function leadership()
     {
         $data= Leadership::all();
-        return view('Admin.leadership', compact('data'));
+        $student= StudentRegister::all();
+        return view('Admin.leadership', compact('data', 'student'));
     }
 
 

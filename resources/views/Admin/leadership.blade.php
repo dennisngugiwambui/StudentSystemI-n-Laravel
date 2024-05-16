@@ -4,6 +4,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <!-- Custom CSS for dark theme -->
     <style>
         .modal-content {
@@ -36,21 +38,14 @@
             border-bottom: 1px solid #444;
             border-top: 1px solid #444;
         }
+        input{
+            background: #0dcaf0;
+        }
     </style>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $("#searchTable").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
+
 
 
 
@@ -109,11 +104,10 @@
                                 <form id="leadershipForm">
                                     <div class="mb-3">
                                         <label for="studentRegNo" class="form-label">Student Registration Number</label>
-                                        <select class="form-control" id="single" class="js-states form-control">
-                                            <option>Java</option>
-                                            <option>Javascript</option>
-                                            <option>PHP</option>
-                                            <option>Visual Basic</option>
+                                        <select class="select2">
+                                            @foreach($student as $student)
+                                                <option value="{{$student->id}}">{{$student->name}}</option>
+                                            @endforeach
                                         </select>
 
 
@@ -163,17 +157,13 @@
     </div>
     <!-- Recent Sales End -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Select2 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
     <script>
-        $("#single").select2({
-            placeholder: "Select a programming language",
-            allowClear: true
-        });
-        $("#multiple").select2({
-            placeholder: "Select a programming language",
-            allowClear: true
-        });
+       $(document).ready(function ()
+       {
+           $(".select2").select2();
+       })
     </script>
 @endsection

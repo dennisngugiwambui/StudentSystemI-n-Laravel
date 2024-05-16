@@ -77,17 +77,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($data as $data)
-                        <tr>
-                            <td><input class="form-check-input" type="checkbox"></td>
-                            <td>{{$data->student_name}}</td>
-                            <td>{{$data->from}}</td>
-                            <td>{{$data->birthcertOrNemis}}</td>
-                            <td>{{$data->class}}</td>
-                            <td>{{$data->parent_phone}}</td>
-                            <td><a class="btn btn-sm btn-primary" href="/registerd_students">Detail</a></td>
-                        </tr>
-                    @endforeach
+{{--                    @foreach($data as $data)--}}
+{{--                        <tr>--}}
+{{--                            <td><input class="form-check-input" type="checkbox"></td>--}}
+{{--                            <td>{{$data->student_name}}</td>--}}
+{{--                            <td>{{$data->from}}</td>--}}
+{{--                            <td>{{$data->birthcertOrNemis}}</td>--}}
+{{--                            <td>{{$data->class}}</td>--}}
+{{--                            <td>{{$data->parent_phone}}</td>--}}
+{{--                            <td><a class="btn btn-sm btn-primary" href="/registerd_students">Detail</a></td>--}}
+{{--                        </tr>--}}
+{{--                    @endforeach--}}
 
 
                     </tbody>

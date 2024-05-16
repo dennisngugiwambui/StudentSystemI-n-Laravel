@@ -120,6 +120,7 @@ class HomeController extends Controller
 
     function Teachers()
     {
+
         return view('Admin.teachers');
     }
 

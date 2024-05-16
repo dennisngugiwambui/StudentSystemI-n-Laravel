@@ -55,6 +55,7 @@
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Roles for students</h6>
 
+
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerLeadershipModal">
                     <i class="fa fa-plus"></i> New Role
@@ -154,7 +155,9 @@
 
             </div>
         </div>
+        <a href="/students" class="btn btn-danger" >BACK</a>
     </div>
+
     <!-- Recent Sales End -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

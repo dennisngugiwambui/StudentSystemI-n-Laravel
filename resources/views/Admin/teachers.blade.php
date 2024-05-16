@@ -61,9 +61,13 @@
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Recent Salse</h6>
-                <a href="">Show All</a>
+                <a href="" class="btn btn-danger">Show All</a>
             </div>
             <div class="table-responsive">
+                <div class="mb-3 text-white">
+                    <input type="text" id="searchTable" class="form-control bg-dark border-0" style="color: #fff;"
+                           placeholder="Search">
+                </div>
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                     <tr class="text-white">

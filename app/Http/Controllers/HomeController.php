@@ -166,6 +166,11 @@ class HomeController extends Controller
         return view('Admin.newTeacher');
     }
 
+    public function Employees()
+    {
+        return view('Admin.Employees');
+    }
+
 
 
 

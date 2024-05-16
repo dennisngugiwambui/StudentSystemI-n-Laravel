@@ -67,5 +67,7 @@ Route::get('/welfare', [App\Http\Controllers\HomeController::class, 'Welfare'])-
 
 Route::get('/leaveout', [App\Http\Controllers\HomeController::class, 'leaveout'])->name('leaveout');
 
+Route::get('/new_teacher', [\App\Http\Controllers\HomeController::class, 'new_teacher'])->name('new_teacher');
+
 
 

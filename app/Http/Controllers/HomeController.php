@@ -161,6 +161,11 @@ class HomeController extends Controller
         return view('Admin.leadership', compact('data', 'student'));
     }
 
+    public function new_teacher()
+    {
+        return view('Admin.newTeacher');
+    }
+
 
 
 

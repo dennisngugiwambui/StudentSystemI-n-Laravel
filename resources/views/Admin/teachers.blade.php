@@ -61,7 +61,7 @@
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Recent Salse</h6>
-                <a href="" class="btn btn-danger">Show All</a>
+                <a href="/new_teacher" class="btn btn-danger"><i class="fa fa-plus"></i>New Teacher </a>
             </div>
             <div class="table-responsive">
                 <div class="mb-3 text-white">

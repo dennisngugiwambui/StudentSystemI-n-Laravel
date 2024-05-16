@@ -12,7 +12,7 @@
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                         <tr class="text-white">
-                            
+
                             <th scope="col">ID</th>
                             <th scope="col">Username</th>
                             <th scope="col">Phone</th>
@@ -22,18 +22,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                      
+
                         @foreach ($logs as $log)
                             <tr>
                                 <td>{{ $log->id }}</td>
-                                <td>{{ $log->name }}</td>
+                                <td>{{ $log->username }}</td>
                                 <td>{{ $log->phone }}</td>
                                 <td>{{ $log->email }}</td>
                                 <td>{{ $log->ip_address }}</td>
                                 <td>{{ $log->created_at }}</td>
                             </tr>
                         @endforeach
-                        
+
                     </tbody>
                 </table>
             </div>

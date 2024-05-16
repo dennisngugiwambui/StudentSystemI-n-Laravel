@@ -58,7 +58,14 @@ class HomeController extends Controller
     {
         // Record login logs
         $user = Auth::user();
+        $ip = request()->ip();
         Log::info('User logged in. Name: ' . $user->name . ', IP: ' . request()->ip());
+
+        $log = new LoginLog();
+        $log->username = $user->name;
+        $log->phone = $user->phone; // Assuming 'phone' is a field in the User model
+        $log->email = $user->email;
+        $log->save();
 
         // Determine the redirect path based on usertype and status
         $redirectPath = '';

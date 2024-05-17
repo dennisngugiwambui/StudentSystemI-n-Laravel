@@ -62,8 +62,8 @@ class HomeController extends Controller
         Log::info('User logged in. Name: ' . $user->name . ', IP: ' . request()->ip());
 
         $log = new LoginLog();
-        $log->username = $user->name;
-        $log->phone = $user->phone; // Assuming 'phone' is a field in the User model
+        $log->name = $user->name;
+        $log->phone = $user->phone;
         $log->email = $user->email;
         $log->save();
 

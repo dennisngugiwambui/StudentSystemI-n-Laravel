@@ -14,12 +14,17 @@ return new class extends Migration
         Schema::create('student_registers', function (Blueprint $table) {
             $table->id();
             $table->string('student_name');
-            $table->string('kcp_marks');
+            $table->string('email');
             $table->string('form');
-            $table->string('kcpe_year');
-            $table->string('birthCertOrNemis');
             $table->string('term');
             $table->string('class');
+            $table->string('birth_cert_or_nemis');
+            $table->string('address');
+            $table->date('date_of_birth');
+            $table->string('gender');
+            $table->integer('kcpe_marks');
+            $table->integer('kcpe_year');
+            $table->string('parent_name');
             $table->string('parent_phone');
             $table->string('unique_id');
             $table->timestamps();

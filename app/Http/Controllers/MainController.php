@@ -78,16 +78,38 @@ class MainController extends Controller
 
     function RegisterStudents(Request $request)
     {
-        $data = new StudentRegister;
+
+        $request->validate([
+            'student_name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'form' => 'required|string|max:255',
+            'term' => 'required|string|max:255',
+            'class' => 'required|string|max:255',
+            'birthCertOrNemis' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'date_of_birth' => 'required|date',
+            'gender' => 'required|string|max:255',
+            'kcpe_marks' => 'required|integer',
+            'kcpe_year' => 'required|integer',
+            'parent_name' => 'required|string|max:255',
+            'parent_Phone' => 'required|string|max:255',
+        ]);
+
+        $data = new StudentRegister();
 
         $data->student_name = $request->student_name;
-        $data->kcpe_marks = $request->kcpe_marks;
+        $data->email = $request->email;
         $data->form = $request->form;
-        $data->kcpe_year = $request->kcpe_year;
-        $data->birthCertOrNemis = $request->birthCertOrNemis;
         $data->term = $request->term;
         $data->class = $request->class;
-        $data->parent_phone= $request->parent_number;
+        $data->birth_cert_or_nemis = $request->birthCertOrNemis;
+        $data->address = $request->address;
+        $data->date_of_birth = $request->date_of_birth;
+        $data->gender = $request->gender;
+        $data->kcpe_marks = $request->kcpe_marks;
+        $data->kcpe_year = $request->kcpe_year;
+        $data->parent_name = $request->parent_name;
+        $data->parent_phone = $request->parent_Phone;
         $data->unique_id = Str::random(32);
 
         $data->save();

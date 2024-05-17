@@ -2,6 +2,55 @@
 
 @section('content')
 
+    <style>
+        .container-fluid{
+            background: #0dcaf0;
+        }
+        .card{
+            background: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Styling for card headers */
+        .card-header {
+            background: #0dcaf0;
+            border-radius: 10px 10px 0 0;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+        }
+
+        /* Styling for card content */
+        .card-content {
+            padding: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Additional styles for data visualization cards */
+        .card-data {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-data .icon {
+            font-size: 48px;
+            color: #0dcaf0;
+        }
+    </style>
 
 
     <!-- Sale & Revenue Start -->

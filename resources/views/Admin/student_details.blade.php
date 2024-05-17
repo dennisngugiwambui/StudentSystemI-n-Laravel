@@ -4,6 +4,9 @@
 
 
 <style>
+    .container-fluid{
+        background: #0dcaf0;
+    }
     /* Card Styles */
     .card {
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
@@ -172,7 +175,7 @@
                                 <div class="modal-body">
                                     <form action="{{ route('promote_student', $student->id) }}" method="POST">
                                         @csrf
-                    
+
                                         <!-- Form Group for Form -->
                                         <div class="mb-3">
                                             <label for="form" class="form-label">Form</label>
@@ -183,7 +186,7 @@
                                                 <option value="Form 4" {{ $student->form === 'Form 4' ? 'selected' : '' }}>Form 4</option>
                                             </select>
                                         </div>
-                    
+
                                         <!-- Form Group for Term -->
                                         <div class="mb-3">
                                             <label for="term" class="form-label">Term</label>
@@ -199,7 +202,7 @@
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
-                                        
+
                             </div>
                             </div>
                         </div>
@@ -219,7 +222,7 @@
                 <h5 style="color: #245284;" class="card-title">Skills and Leadership</h5>
                 <a class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#addSkills">Add</a>
             </div>
-            
+
             <!-- Modal for adding new skills -->
             <!-- Modal for adding new skills -->
 <!-- Modal for adding new skills -->
@@ -265,7 +268,7 @@
                 <p class="text-secondary">{{ $skill->skill }}</p>
             </div>
         @endforeach
-            
+
         </div>
     </div>
 </div>
@@ -309,7 +312,7 @@
 <!-- Grade Section -->
 <div class="container mt-4">
     <h5 style="color: #245284;" class="mb-3">Grade Section</h5>
-    
+
     <!-- Form 1 -->
     <h6 class="mb-2">Form 1</h6>
     <div class="table-responsive">
@@ -404,14 +407,14 @@
             </tfoot>
         </table>
     </div>
-    
+
     <!-- Add similar tables for Form 2, Form 3, and Form 4 -->
-    
+
 </div>
 
 
-              
-            
+
+
 
 <!-- Add the rest of your profile sections below this comment -->
 

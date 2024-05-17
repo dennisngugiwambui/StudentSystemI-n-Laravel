@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Activities as ModelsActivities;
 use App\Models\Leadership;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Toastr;
 use Illuminate\Support\Facades\Auth;
@@ -203,6 +204,72 @@ class MainController extends Controller
 
 
         return response()->json($leadership);
+    }
+
+    public function RegisterTeacher(Request $request)
+    {
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:teachers',
+            'phone_number' => 'required|string|max:20',
+            'address' => 'required|string|max:255',
+            'date_of_birth' => 'required|date',
+            'gender' => 'required|string|max:10',
+            'employee_id' => 'required|string|max:50|unique:teachers',
+            'job_title' => 'required|string|max:255',
+            'subjects_taught' => 'required|string|max:255',
+            'department' => 'required|string|max:255',
+            'employment_status' => 'required|string|max:20',
+            'hire_date' => 'required|date',
+            'salary' => 'required|string|max:100',
+            'degrees' => 'required|string|max:255',
+            'institutions' => 'required|string|max:255',
+            'major' => 'required|string|max:255',
+            'years_experience' => 'required|integer',
+            'previous_schools' => 'required|string|max:255',
+            'training_courses' => 'required|string|max:255',
+            'certifications' => 'required|string|max:255',
+            'emergency_contact_name' => 'required|string|max:255',
+            'emergency_contact_relationship' => 'required|string|max:255',
+            'emergency_contact_phone' => 'required|string|max:20',
+            'attendance_records' => 'required|string',
+            'performance_evaluations' => 'required|string',
+        ]);
+
+        $teacher = new Teacher();
+
+        $teacher->full_name = $request->full_name;
+        $teacher->email = $request->email;
+        $teacher->phone_number = $request->phone_number;
+        $teacher->address = $request->address;
+        $teacher->date_of_birth = $request->date_of_birth;
+        $teacher->gender = $request->gender;
+        $teacher->employee_id = $request->employee_id;
+        $teacher->job_title = $request->job_title;
+        $teacher->subjects_taught = $request->subjects_taught;
+        $teacher->department = $request->department;
+        $teacher->employment_status = $request->employment_status;
+        $teacher->hire_date = $request->hire_date;
+        $teacher->salary = $request->salary;
+        $teacher->degrees = $request->degrees;
+        $teacher->institutions = $request->institutions;
+        $teacher->major = $request->major;
+        $teacher->years_experience = $request->years_experience;
+        $teacher->previous_schools = $request->previous_schools;
+        $teacher->training_courses = $request->training_courses;
+        $teacher->certifications = $request->certifications;
+        $teacher->emergency_contact_name = $request->emergency_contact_name;
+        $teacher->emergency_contact_relationship = $request->emergency_contact_relationship;
+        $teacher->emergency_contact_phone = $request->emergency_contact_phone;
+        $teacher->attendance_records = $request->attendance_records;
+        $teacher->performance_evaluations = $request->performance_evaluations;
+
+        $teacher->save();
+
+        Toastr::success('Teacher registered successfully', 'Success', ["positionClass" => "toast-bottom-left"]);
+
+
+        return redirect()->back()->with('success', 'teacher successfully registered');
     }
 
 

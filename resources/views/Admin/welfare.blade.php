@@ -2,6 +2,12 @@
 
 @section('content')
 
+    <style>
+        .container-fluid{
+            background: #edf2f7;
+        }
+    </style>
+
 <div class="container-fluid pt-4 px-4">
     <!-- Sale & Revenue Start -->
     <div class="row g-4">
@@ -12,12 +18,12 @@
                         <i class="fas fa-chalkboard fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2">LEAVEOUT</p>
-                            
+
                         </div>
                     </div>
                 </div>
             </a>
-        </div>        
+        </div>
         <div class="col-sm-6 col-lg-4 col-xl-3">
             <div class="card bg-secondary h-100">
                 <div class="card-body d-flex align-items-center justify-content-between">

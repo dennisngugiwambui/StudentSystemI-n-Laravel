@@ -20,7 +20,7 @@
         background-color: #007bff; /* Change header background color */
         color: #fff; /* Change header text color */
     }
-    
+
     .modal-footer {
         background-color: #007bff; /* Change header background color */
         color: #fff; /* Change header text color */
@@ -53,6 +53,9 @@
     select:focus {
         background-color: white;
         color: black;
+    }
+    .container-fluid{
+        background: #0dcaf0;
     }
 
     /* Add more custom styling as needed */
@@ -108,7 +111,7 @@
                             <label for="inputPassword" class="col-sm-2 col-form-label">Term</label>
                             <div class="col-sm-10">
                                 <select class="form-select" name="term" id="floatingSelectGrid">
-                                   
+
                                     <option value="1">Term 1</option>
                                     <option value="2">Term 2</option>
                                     <option value="3">Term 3</option>
@@ -155,10 +158,10 @@
 
         </div>
         <div class="table-responsive">
-            <div class="mb-3 text-white"> 
+            <div class="mb-3 text-white">
                 <input type="text" id="searchTable" class="form-control bg-dark border-0" style="color: #fff;" placeholder="Search">
             </div>
-           
+
             <table id="activityTable" class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                     <tr class="text-white">
@@ -183,7 +186,7 @@
                        <td>Term{{ $item->term }}</td>
                        <td>{{ $item->classes }}</td>
                        <td>{{ $item->description }}</td>
-                       <td> 
+                       <td>
                         @if ($item->status == 'unverified')
                         <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#verifyModel_{{ $item->id }}">
                             Verify

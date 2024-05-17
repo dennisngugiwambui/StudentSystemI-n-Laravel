@@ -1,6 +1,12 @@
 @extends('Admin.app')
 
 @section('content')
+
+    <style>
+        .container-fluid {
+            background: #0dcaf0;
+        }
+    </style>
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary text-center rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
@@ -37,31 +43,26 @@
 </div>
 
 
-<tr>
-    <th scope="row" class="text-info">Date</th>
-    <td>
-        {{ $activity->date }} <span id="daysRemainingSpan"></span>
-    </td>
-</tr>
+
 
 <script>
   // Function to calculate days remaining and update the span element
   function updateDaysRemaining() {
     // Get the date string from the span element
     const dateString = "{{ $activity->date }}";
-    
+
     // Convert the date string to a Date object
     const targetDate = new Date(dateString);
-    
+
     // Get the current date
     const currentDate = new Date();
-    
+
     // Calculate the time difference in milliseconds
     const timeDifference = targetDate - currentDate;
-    
+
     // Calculate the number of days remaining
     const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-    
+
     // Create a message based on the days remaining
     let message = '';
     if (daysRemaining < 0) {
@@ -74,7 +75,7 @@
       message = `(${daysRemaining} days remaining)`;
       document.getElementById('daysRemainingSpan').style.color = 'yellow';
     }
-    
+
     // Display the message in the span element
     document.getElementById('daysRemainingSpan').textContent = message;
   }

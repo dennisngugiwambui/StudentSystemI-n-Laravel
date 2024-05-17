@@ -178,6 +178,11 @@ class HomeController extends Controller
         return view('Admin.Employees');
     }
 
+    public function new_Employees()
+    {
+        return view('Admin.newEmployee');
+    }
+
 
 
 

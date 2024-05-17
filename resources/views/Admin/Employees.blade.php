@@ -23,7 +23,7 @@
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">EMPLOYEES DATA</h6>
-                <a href="" class="btn btn-danger"> <i class="fa fa-plus"></i> Add New</a>
+                <a href="{{route('new_Employees')}}" class="btn btn-danger"> <i class="fa fa-plus"></i> Add New</a>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">

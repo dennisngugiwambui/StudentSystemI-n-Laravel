@@ -67,11 +67,13 @@ Route::get('/welfare', [App\Http\Controllers\HomeController::class, 'Welfare'])-
 
 Route::get('/leaveout', [App\Http\Controllers\HomeController::class, 'leaveout'])->name('leaveout');
 
-Route::get('/new_teacher', [\App\Http\Controllers\HomeController::class, 'new_teacher'])->name('new_teacher');
+Route::get('/new_teacher', [App\Http\Controllers\HomeController::class, 'new_teacher'])->name('new_teacher');
 
-Route::get('/employees', [\App\Http\Controllers\HomeController::class, 'Employees'])->name(' Employees');
+Route::get('/employees', [App\Http\Controllers\HomeController::class, 'Employees'])->name(' Employees');
+
+Route::get('/new_Employees', [App\Http\Controllers\HomeController::class, 'new_Employees'])->name('new_Employees');
 
 Route::post('/RegisterTeacher', [App\Http\Controllers\MainController::class, 'RegisterTeacher'])->name('RegisterTeacher');
 
-
+;
 

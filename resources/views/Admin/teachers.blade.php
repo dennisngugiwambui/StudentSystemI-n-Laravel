@@ -3,38 +3,43 @@
 @section('content')
 
 
+    <style>
+        .container-fluid{
+            background: #0dcaf0;
+        }
+    </style>
 
     <!-- Sale & Revenue Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
             <div class="col-sm-6 col-xl-3">
-                <a href="{{ route('registered_students') }}" class="text-decoration-none">
+                <a href="" class="text-decoration-none">
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-line fa-3x text-primary"> </i>
                         <div class="ms-3">
-                            <p class="mb-2">Registered Students</p>
+                            <p class="mb-2">New Marks</p>
                             <h6 class="mb-0">2932</h6>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <a href="{{ route('Punishment') }}" class="text-decoration-none">
+                <a href="" class="text-decoration-none">
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-bar fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Punishment</p>
+                            <p class="mb-2">Register</p>
                             <h6 class="mb-0">$1234</h6>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <a href="{{ route('leadership') }}" class="text-decoration-none">
+                <a href="" class="text-decoration-none">
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-area fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Leaderships</p>
+                            <p class="mb-2">Leadership</p>
                             <h6 class="mb-0">$1234</h6>
                         </div>
                     </div>

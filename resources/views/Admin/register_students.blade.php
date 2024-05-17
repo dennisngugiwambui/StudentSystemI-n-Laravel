@@ -53,9 +53,12 @@
                             <div class="form-group">
                                 <label for="fullName">Full Name</label>
                                 <input type="text" class="form-control" name="student_name" id="fullName" required>
+                                @error('student_name')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">Form</label>
 
                                 <select id="form" name="form" class="form-control" required>
                                     <option value="form 1">Form 1</option>
@@ -63,6 +66,10 @@
                                     <option value="form 3">Form 3</option>
                                     <option value="form 4">Form 4</option>
                                 </select>
+
+                                @error('form')
+                                <span class="invalid-feedback">{{ $form }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -70,6 +77,9 @@
                                 <select id="term" name="term" class="form-control" required disabled>
                                     <option value="" selected>Select a Form first</option>
                                 </select>
+                                @error('term')
+                                <span class="invalid-feedback">{{ $term }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -77,10 +87,18 @@
                                 <select id="class" name="class" class="form-control" required disabled>
                                     <option value="" selected>Select a Form first</option>
                                 </select>
+
+                                @error('class')
+                                <span class="invalid-feedback">{{ $class }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="phoneNumber">Nemis or BirthCertificate</label>
                                 <input type="number" class="form-control" id="phoneNumber" name="birthCertOrNemis" required>
+
+                                @error('birthCertOrNemis')
+                                <span class="invalid-feedback">{{ $birthCertOrNemis }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="address">Home County</label>
@@ -135,18 +153,30 @@
                                     <option value="Nairobi">Nairobi</option>
                                 </select>
 
+                                @error('address')
+                                <span class="invalid-feedback">{{ $address }}</span>
+                                @enderror
+
                             </div>
                             <div class="form-group">
                                 <label for="dob">Date of Birth</label>
-                                <input type="date" class="form-control" id="dob" required>
+                                <input type="date" class="form-control" name="date_of_birth" id="dob" required>
+
+                                @error('date_of_birth')
+                                <span class="invalid-feedback">{{ $date_of_birth }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="gender">Gender</label>
-                                <select class="form-control" id="gender" required>
+                                <select class="form-control" id="gender" name="gender" required>
                                     <option>Male</option>
                                     <option>Female</option>
                                     <option>Other</option>
                                 </select>
+
+                                @error('gender')
+                                <span class="invalid-feedback">{{ $gender }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>

@@ -71,5 +71,7 @@ Route::get('/new_teacher', [\App\Http\Controllers\HomeController::class, 'new_te
 
 Route::get('/employees', [\App\Http\Controllers\HomeController::class, 'Employees'])->name(' Employees');
 
+Route::post('/RegisterTeacher', [App\Http\Controllers\MainController::class, 'RegisterTeacher'])->name('RegisterTeacher');
+
 
 

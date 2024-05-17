@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="leaveout-form">
-                <form method="POST" action="">
+                <form method="" action="">
                     @csrf
 
                     <h1>LEAVEOUT SHEET</h1>
@@ -54,11 +54,11 @@
                         <div id="studentSearchResults" class="dropdown-menu position-absolute" style="display: none;">
                             <ul class="list-group" style="list-style: none; margin: 0; padding: 0;"></ul>
                         </div>
-                    </div> 
+                    </div>
                     <div class="mb-3">
                         <label for="reason_for_leaveout" class="form-label">Student Reg Number</label>
                         <input type="text" class="form-control" id="id" name="reg_number" readonly>
-                    </div>                   
+                    </div>
                     <div class="mb-3">
                         <label for="reason_for_leaveout" class="form-label">Student Name</label>
                         <input type="text" class="form-control" id="reason_for_leaveout" name="student_name" readonly>
@@ -88,6 +88,8 @@
                 <label for="name">Enter Name: </label>
                 <input type="text" id="name">
                 <button type="button" id="generateLetter">Generate Letter</button>
+                <button type="button" id="printLetter">Print</button>
+
             </div>
 
             <div id="toolbar">

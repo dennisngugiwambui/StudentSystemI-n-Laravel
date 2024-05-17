@@ -7,48 +7,10 @@
     <!-- Sale & Revenue Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
-            <div class="col-sm-6 col-xl-3">
-                <a href="{{ route('registered_students') }}" class="text-decoration-none">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-line fa-3x text-primary"> </i>
-                        <div class="ms-3">
-                            <p class="mb-2">Registered</p>
-                            <h6 class="mb-0">2932</h6>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <a href="{{ route('Punishment') }}" class="text-decoration-none">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Punishment</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <a href="{{ route('leadership') }}" class="text-decoration-none">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-area fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Leaderships</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Rewards</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
+
+
+
+
         </div>
     </div>
     <!-- Sale & Revenue End -->
@@ -60,8 +22,8 @@
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Recent Salse</h6>
-                <a href="">Show All</a>
+                <h6 class="mb-0">EMPLOYEES DATA</h6>
+                <a href="" class="btn btn-danger"> <i class="fa fa-plus"></i> Add New</a>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -70,9 +32,9 @@
                         <th scope="col"><input class="form-check-input" type="checkbox"></th>
                         <th scope="col">Name</th>
                         <th scope="col">Joined</th>
-                        <th scope="col">BirthcertOrNemis</th>
-                        <th scope="col">Class</th>
-                        <th scope="col">Parent Phone</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Phone</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>

@@ -75,9 +75,15 @@ Route::get('/new_Employees', [App\Http\Controllers\HomeController::class, 'new_E
 
 Route::post('/RegisterTeacher', [App\Http\Controllers\MainController::class, 'RegisterTeacher'])->name('RegisterTeacher');
 
-Route::get('/Communication', [\App\Http\Controllers\HomeController::class, 'Communication'])->name('Communication');
+Route::get('/Communication', [App\Http\Controllers\HomeController::class, 'Communication'])->name('Communication');
 
-Route::get('/Management', [\App\Http\Controllers\HomeController::class, 'Management'])->name('Management');
+Route::get('/Management', [App\Http\Controllers\HomeController::class, 'Management'])->name('Management');
+
+Route::get('/Attedance', [App\Http\Controllers\HomeController::class, 'Attedance'])->name('Attedance');
+
+Route::get('/Examination', [App\Http\Controllers\HomeController::class, 'Examination'])->name('Examination');
+
+
 
 
 

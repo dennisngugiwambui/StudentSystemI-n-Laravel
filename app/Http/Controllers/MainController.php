@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activities as ModelsActivities;
+use App\Models\Employee;
 use App\Models\Leadership;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -270,6 +271,13 @@ class MainController extends Controller
 
 
         return redirect()->back()->with('success', 'teacher successfully registered');
+    }
+
+    public function Employees_Store(Request $request)
+    {
+        $data= new Employee();
+
+        return response()->json('hi there');
     }
 
 

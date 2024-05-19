@@ -183,6 +183,16 @@ class HomeController extends Controller
         return view('Admin.newEmployee');
     }
 
+    public function Communication()
+    {
+        return view('Admin.Communication');
+    }
+
+    public function Management()
+    {
+        return view('Admin.Management');
+    }
+
 
 
 

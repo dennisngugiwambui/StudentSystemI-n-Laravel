@@ -83,6 +83,8 @@ Route::get('/Attedance', [App\Http\Controllers\HomeController::class, 'Attedance
 
 Route::get('/Examination', [App\Http\Controllers\HomeController::class, 'Examination'])->name('Examination');
 
+Route::post('/Employees_Store', [App\Http\Controllers\MainController::class, 'Employees_Store'])->name('employees.store');
+
 
 
 

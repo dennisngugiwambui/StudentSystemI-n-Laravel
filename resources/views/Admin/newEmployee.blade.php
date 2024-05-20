@@ -274,9 +274,14 @@
                                 <label for="languageProficiency">Language Proficiency</label>
                                 <input type="text" class="form-control" id="languageProficiency" name="language_proficiency">
                             </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="photographPath">Photograph</label>--}}
+{{--                                <input type="file" class="form-control-file" id="photographPath" name="photograph_path">--}}
+{{--                            </div>--}}
+
                             <div class="form-group">
                                 <label for="photographPath">Photograph</label>
-                                <input type="file" class="form-control-file" id="photographPath" name="photograph_path">
+                                <input type="file" class="form-control-file" id="photographPath" name="photograph_path" accept="image/*" capture="camera">
                             </div>
                         </div>
                     </div>

@@ -59,12 +59,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Form</label>
-                                <select id="form" name="form" class="form-control select2" required>
+
+                                <select id="form" name="form" class="form-control" required>
                                     <option value="form 1">Form 1</option>
                                     <option value="form 2">Form 2</option>
                                     <option value="form 3">Form 3</option>
                                     <option value="form 4">Form 4</option>
                                 </select>
+
                                 @error('form')
                                 <span class="invalid-feedback">{{ $form }}</span>
                                 @enderror
@@ -72,7 +74,7 @@
 
                             <div class="form-group">
                                 <label for="term">Term:</label>
-                                <select id="term" name="term" class="form-control select2" required disabled>
+                                <select id="term" name="term" class="form-control" required disabled>
                                     <option value="" selected>Select a Form first</option>
                                 </select>
                                 @error('term')
@@ -82,9 +84,10 @@
 
                             <div class="form-group">
                                 <label for="class">Class:</label>
-                                <select id="class" name="class" class="form-control select2" required disabled>
+                                <select id="class" name="class" class="form-control" required disabled>
                                     <option value="" selected>Select a Form first</option>
                                 </select>
+
                                 @error('class')
                                 <span class="invalid-feedback">{{ $class }}</span>
                                 @enderror
@@ -92,6 +95,7 @@
                             <div class="form-group">
                                 <label for="phoneNumber">Nemis or BirthCertificate</label>
                                 <input type="number" class="form-control" id="phoneNumber" name="birthCertOrNemis" required>
+
                                 @error('birthCertOrNemis')
                                 <span class="invalid-feedback">{{ $birthCertOrNemis }}</span>
                                 @enderror
@@ -148,13 +152,16 @@
                                     <option value="Nyamira">Nyamira</option>
                                     <option value="Nairobi">Nairobi</option>
                                 </select>
+
                                 @error('address')
                                 <span class="invalid-feedback">{{ $address }}</span>
                                 @enderror
+
                             </div>
                             <div class="form-group">
                                 <label for="dob">Date of Birth</label>
                                 <input type="date" class="form-control" name="date_of_birth" id="dob" required>
+
                                 @error('date_of_birth')
                                 <span class="invalid-feedback">{{ $date_of_birth }}</span>
                                 @enderror
@@ -166,6 +173,7 @@
                                     <option>Female</option>
                                     <option>Other</option>
                                 </select>
+
                                 @error('gender')
                                 <span class="invalid-feedback">{{ $gender }}</span>
                                 @enderror
@@ -190,8 +198,6 @@
                         </div>
                     </div>
 
-
-
                     <!-- Educational Background Card -->
                     <div class="card mb-3 border-info">
                         <div class="card-header bg-info text-white">
@@ -210,61 +216,75 @@
                         </div>
                     </div>
 
+
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
+
         </div>
     </div>
 
-    <!-- Include Select2 CSS and JS -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <!-- Initialize Select2 for the dropdowns -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for Select2 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script>
+        // Initialize Select2 for all dropdowns with the class 'select2'
         $(document).ready(function() {
             $('.select2').select2();
         });
-
-        // JavaScript to enable Term and Class dropdowns when a Form is selected
-        const formSelect = document.getElementById('form');
-        const termSelect = document.getElementById('term');
-        const classSelect = document.getElementById('class');
-
-        formSelect.addEventListener('change', () => {
-            const selectedForm = formSelect.value;
-            termSelect.innerHTML = ''; // Clear previous Term options
-            classSelect.innerHTML = ''; // Clear previous Class options
-
-            if (selectedForm !== "") {
-                termSelect.disabled = false;
-                classSelect.disabled = false;
-
-                for (let i = 1; i <= 3; i++) {
-                    const termOption = document.createElement('option');
-                    termOption.value = `Term ${i}`;
-                    termOption.text = `Term ${i}`;
-                    termSelect.appendChild(termOption);
-                }
-
-                const classOptionEast = document.createElement('option');
-                classOptionEast.value = `${selectedForm} East`;
-                classOptionEast.text = `${selectedForm} East`;
-
-                const classOptionWest = document.createElement('option');
-                classOptionWest.value = `${selectedForm} West`;
-                classOptionWest.text = `${selectedForm} West`;
-
-                classSelect.appendChild(classOptionEast);
-                classSelect.appendChild(classOptionWest);
-            } else {
-                termSelect.disabled = true;
-                classSelect.disabled = true;
-
-                termSelect.innerHTML = '<option value="" selected>Select a Form first</option>';
-                classSelect.innerHTML = '<option value="" selected>Select a Form first</option>';
-            }
-        });
     </script>
 
+
+        <script>
+            // JavaScript to enable Term and Class dropdowns when a Form is selected
+            const formSelect = document.getElementById('form');
+            const termSelect = document.getElementById('term');
+            const classSelect = document.getElementById('class');
+
+            formSelect.addEventListener('change', () => {
+                const selectedForm = formSelect.value;
+                termSelect.innerHTML = ''; // Clear previous Term options
+                classSelect.innerHTML = ''; // Clear previous Class options
+
+                if (selectedForm !== "") {
+                    termSelect.disabled = false;
+                    classSelect.disabled = false;
+
+                    for (let i = 1; i <= 3; i++) {
+                        const termOption = document.createElement('option');
+                        termOption.value = `Term ${i}`;
+                        termOption.text = `Term ${i}`;
+                        termSelect.appendChild(termOption);
+                    }
+
+                    const classOptionEast = document.createElement('option');
+                    classOptionEast.value = `${selectedForm} East`;
+                    classOptionEast.text = `${selectedForm} East`;
+
+                    const classOptionWest = document.createElement('option');
+                    classOptionWest.value = `${selectedForm} West`;
+                    classOptionWest.text = `${selectedForm} West`;
+
+                    classSelect.appendChild(classOptionEast);
+                    classSelect.appendChild(classOptionWest);
+                } else {
+                    termSelect.disabled = true;
+                    classSelect.disabled = true;
+
+                    termSelect.innerHTML = '<option value="" selected>Select a Form first</option>';
+                    classSelect.innerHTML = '<option value="" selected>Select a Form first</option>';
+                }
+            });
+        </script>
+    </div>
+</div>
+<!-- Recent Sales End -->
+
+
 @endsection
+

@@ -203,6 +203,11 @@ class HomeController extends Controller
         return view('Admin.Examination');
     }
 
+    public function new_ParentsCommunication()
+    {
+        return view('Admin.newCommunication');
+    }
+
 
 
 

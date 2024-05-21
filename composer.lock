@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "africastalking/africastalking",
-            "version": "v3.0.0",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AfricasTalkingLtd/africastalking-php.git",
-                "reference": "94e17a13eaaf782cf7697bfc7da020398a2b6f13"
+                "reference": "8345423ee70b07b36cedcce61c85c9bc679e3666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AfricasTalkingLtd/africastalking-php/zipball/94e17a13eaaf782cf7697bfc7da020398a2b6f13",
-                "reference": "94e17a13eaaf782cf7697bfc7da020398a2b6f13",
+                "url": "https://api.github.com/repos/AfricasTalkingLtd/africastalking-php/zipball/8345423ee70b07b36cedcce61c85c9bc679e3666",
+                "reference": "8345423ee70b07b36cedcce61c85c9bc679e3666",
                 "shasum": ""
             },
             "require": {
@@ -30,8 +30,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "AfricasTalking\\SDK\\": "src/",
-                    "AfricasTalking\\SDK\\Tests\\": "tests"
+                    "AfricasTalking\\SDK\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -58,9 +57,9 @@
             ],
             "support": {
                 "issues": "https://github.com/AfricasTalkingLtd/africastalking-php/issues",
-                "source": "https://github.com/AfricasTalkingLtd/africastalking-php/tree/v3.0.0"
+                "source": "https://github.com/AfricasTalkingLtd/africastalking-php/tree/v3.0.2"
             },
-            "time": "2020-10-11T00:52:15+00:00"
+            "time": "2024-03-07T12:27:18+00:00"
         },
         {
             "name": "brian2694/laravel-toastr",

@@ -57,7 +57,7 @@
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Recent Record</h6>
-                <a href="/new_teacher" class="btn btn-danger"><i class="fa fa-plus"></i>New Communication </a>
+                <a href="{{route('new_ParentsCommunication')}}" class="btn btn-danger"><i class="fa fa-plus"></i>New Communication </a>
             </div>
             <div class="table-responsive">
                 <div class="mb-3 text-white">

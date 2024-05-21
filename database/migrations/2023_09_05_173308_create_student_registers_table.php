@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('parent_name');
             $table->string('parent_phone');
             $table->string('unique_id');
+            $table->string('photogrsaph_path')->nullable();
             $table->timestamps();
         });
     }

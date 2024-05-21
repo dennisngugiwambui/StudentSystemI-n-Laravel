@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('punshments', function (Blueprint $table) {
             $table->id();
             $table->string('student_name');
+            $table->string('student_RegNo');
             $table->string('form');
             $table->string('reason');
             $table->string('from');

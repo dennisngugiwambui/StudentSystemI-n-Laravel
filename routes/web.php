@@ -86,6 +86,11 @@ Route::get('/Examination', [App\Http\Controllers\HomeController::class, 'Examina
 Route::post('/Employees_Store', [App\Http\Controllers\MainController::class, 'Employees_Store'])->name('employees.store');
 
 
+Route::get('/new_Communication', [App\Http\Controllers\HomeController::class, 'new_ParentsCommunication'])->name('new_ParentsCommunication');
+
+
+Route::post('/new_CommunicationPost', [\App\Http\Controllers\MainController::class, 'new_Communication'])->name('new_Communication');
+
 
 
 

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activities as ModelsActivities;
+use App\Models\Communication;
 use App\Models\Employee;
 use App\Models\Leadership;
+use App\Models\NonTeachingStuff;
 use App\Models\Teacher;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Toastr;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +18,7 @@ use App\Models\StudentRegister;
 use App\Models\Punshment as Punshment;
 use Brian2694\Toastr\Toastr as ToastrToastr;
 use Illuminate\Support\Str;
+use AfricasTalking\SDK\AfricasTalking;
 
 
 class MainController extends Controller
@@ -279,6 +283,97 @@ class MainController extends Controller
 
         return response()->json('hi there');
     }
+
+
+    public function new_Communication(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'recipient_group' => 'required|array',
+            'form_group' => 'required|array',
+            'event_name' => 'required|string',
+            'other_event_name' => 'nullable|string',
+            'event_date' => 'required|date',
+            'event_time' => 'required|date_format:H:i',
+            'message_content' => 'nullable|string'
+        ]);
+
+        // Save the communication details
+        $communication = new Communication();
+        $communication->recipient_group = json_encode($request->recipient_group);
+        $communication->form_group = json_encode($request->form_group);
+        $communication->event_name = $request->event_name;
+        $communication->other_event_name = $request->event_name === 'other' ? $request->other_event_name : null;
+        $communication->event_date = $request->event_date;
+        $communication->event_time = $request->event_time;
+        $communication->message_content = $request->message_content;
+        $communication->save();
+
+
+
+        // Send SMS to the appropriate groups
+        foreach ($request->recipient_group as $group) {
+            switch ($group) {
+                case "Parents":
+                    $this->sendSmsToGroup(StudentRegister::whereNotNull('parent_phone')->pluck('parent_phone')->toArray(), 'parent', $request);
+                    break;
+                case "Teachers":
+                    $this->sendSmsToGroup(Teacher::whereNotNull('phone')->pluck('phone')->toArray(), 'teacher', $request);
+                    break;
+                case "Non Teaching Staff":
+                    $this->sendSmsToGroup(NonTeachingStuff::whereNotNull('phone')->pluck('phone')->toArray(), 'non-teaching staff', $request);
+                    break;
+            }
+        }
+
+        //return response()->json($group);
+        Toastr::success('Communication added successfully', 'Success', ["positionClass" => "toast-bottom-left"]);
+
+        return redirect()->back()->with('success', 'Communication added successfully');
+    }
+
+    // Helper method to send SMS to a group
+    private function sendSmsToGroup(array $phones, string $recipientType, Request $request)
+    {
+        foreach ($phones as $phone) {
+            $sms = $this->composeMessage($recipientType, $request);
+            $this->sendSms($phone, $sms);
+        }
+    }
+
+    // Method to send SMS
+    public function sendSms(string $number, string $message)
+    {
+        $username = 'dennohosi';
+        $apiKey = getenv('AT_API_KEY');
+        $AT = new AfricasTalking($username, $apiKey);
+
+        $sms = $AT->sms();
+        $result = $sms->send([
+            'to' => $number,
+            'message' => $message,
+        ]);
+
+        \Log::info("SMS sent to $number: " . json_encode($result));
+    }
+
+    // Method to compose SMS message
+    protected function composeMessage($recipientType, $request)
+    {
+        $schoolAddress = "1234 Elm Street, Springfield, IL 62704";
+
+        $message = "Hello dear $recipientType,\n\n";
+        $message .= "Pixel Solution School would like to inform you about the event: ";
+        $message .= $request->event_name === 'other' ? $request->other_event_name : $request->event_name;
+        $message .= "\nDate: " . $request->event_date;
+        $message .= "\nStarting at: " . $request->event_time;
+        $message .= "\nThe classes included are: " . implode(', ', $request->form_group);
+        $message .= "\n\nAdditional comments: " . $request->message_content;
+        $message .= "\n\nSchool address: $schoolAddress";
+
+        return $message;
+    }
+
 
 
 

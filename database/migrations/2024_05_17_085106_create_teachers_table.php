@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('emergency_contact_name');
             $table->string('emergency_contact_relationship');
             $table->string('emergency_contact_phone');
+            $table->string('photograph_path')->nullable();
             $table->timestamps();
         });
     }

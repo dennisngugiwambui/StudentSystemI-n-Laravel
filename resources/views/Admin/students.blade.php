@@ -130,8 +130,8 @@
                         <tr>
                             <td><input class="form-check-input" type="checkbox"></td>
                             <td>{{$data->student_name}}</td>
-                            <td>{{$data->from}}</td>
-                            <td>{{$data->birthcertOrNemis}}</td>
+                            <td>{{$data->created_at}}</td>
+                            <td>{{$data->birth_cert_or_nemis}}</td>
                             <td>{{$data->class}}</td>
                             <td>{{$data->parent_phone}}</td>
                             <td><a class="btn btn-sm btn-primary" href="{{ route('student_details', ['unique_id' => $data->unique_id]) }}">Detail</a></td>

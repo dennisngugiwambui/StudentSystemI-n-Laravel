@@ -280,9 +280,71 @@ class MainController extends Controller
 
     public function Employees_Store(Request $request)
     {
-        $data= new Employee();
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'date_of_birth' => 'required|date',
+            'gender' => 'required|string',
+            'nationality' => 'required|string|max:255',
+            'address' => 'required|string',
+            'phone_number' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
+            'emergency_contact_name' => 'required|string|max:255',
+            'emergency_contact_phone' => 'required|string|max:20',
+            'designation' => 'required|string|max:255',
+            'department' => 'required|string|max:255',
+            'employment_type' => 'required|string|max:255',
+            'date_of_joining' => 'required|date',
+            'salary' => 'required|numeric',
+            'highest_degree' => 'required|string|max:255',
+            'institution_name' => 'required|string|max:255',
+            'year_of_completion' => 'required|integer|min:1900',
+            'government_id' => 'required|string|max:255',
+            'social_security_number' => 'required|string|max:255',
+            'criminal_record_check' => 'required|boolean',
+            'bank_account_number' => 'required|string|max:255',
+            'bank_name' => 'required|string|max:255',
+            'branch_name' => 'required|string|max:255',
+            'payment_method' => 'required|string|max:255',
+        ]);
 
-        return response()->json('hi there');
+        $data = new Employee();
+
+        $data->full_name = $request->full_name;
+        $data->date_of_birth = $request->date_of_birth;
+        $data->gender = $request->gender;
+        $data->nationality = $request->nationality;
+        $data->address = $request->address;
+        $data->phone_number = $request->phone_number;
+        $data->email = $request->email;
+        $data->emergency_contact_name = $request->emergency_contact_name;
+        $data->emergency_contact_phone = $request->emergency_contact_phone;
+        $data->designation = $request->designation;
+        $data->department = $request->department;
+        $data->employment_type = $request->employment_type;
+        $data->date_of_joining = $request->date_of_joining;
+        $data->salary = $request->salary;
+        $data->highest_degree = $request->highest_degree;
+        $data->institution_name = $request->institution_name;
+        $data->year_of_completion = $request->year_of_completion;
+        $data->government_id = $request->government_id;
+        $data->social_security_number = $request->social_security_number;
+        $data->criminal_record_check = $request->criminal_record_check;
+        $data->reference_contact_name = $request->reference_contact_name;
+        $data->reference_contact_phone = $request->reference_contact_phone;
+        $data->bank_account_number = $request->bank_account_number;
+        $data->bank_name = $request->bank_name;
+        $data->branch_name = $request->branch_name;
+        $data->payment_method = $request->payment_method;
+        $data->medical_history = $request->medical_history;
+        $data->disability_status = $request->disability_status;
+        $data->skills_certifications = $request->skills_certifications;
+
+        $data->save();
+
+        //return response()->json($group);
+        Toastr::success('Employee data added successfully', 'Success', ["positionClass" => "toast-bottom-left"]);
+
+        return redirect()->back()->with('success', 'Employee data added successfully');
     }
 
 

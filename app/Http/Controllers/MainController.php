@@ -87,7 +87,6 @@ class MainController extends Controller
 
         $request->validate([
             'student_name' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
             'form' => 'required|string|max:255',
             'term' => 'required|string|max:255',
             'class' => 'required|string|max:255',
@@ -104,7 +103,7 @@ class MainController extends Controller
         $data = new StudentRegister();
 
         $data->student_name = $request->student_name;
-        $data->email = $request->email;
+        $data->email = 'N/A';
         $data->form = $request->form;
         $data->term = $request->term;
         $data->class = $request->class;
@@ -119,6 +118,8 @@ class MainController extends Controller
         $data->unique_id = Str::random(32);
 
         $data->save();
+
+        //return response()->json($data);
 
 
         Toastr::success('Student Registered Successfully', 'success', ["positionClass" => "toast-bottom-left"]);

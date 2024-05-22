@@ -42,7 +42,7 @@
             </div>
 
             <div >
-                <form id="studentForm" action="{{ route('RegisterStudents') }}" method="POST" class="registration-form">
+                <form  action="{{ route('RegisterStudents') }}" method="POST">
                     @csrf
                     <!-- Personal Information Card -->
                     <div class="card mb-3 border-primary">
@@ -53,10 +53,9 @@
                             <div class="form-group">
                                 <label for="fullName">Full Name</label>
                                 <input type="text" class="form-control" name="student_name" id="fullName" required>
-                                @error('student_name')
-                                <span class="invalid-feedback">{{ $message }}</span>
-                                @enderror
+
                             </div>
+
                             <div class="form-group">
                                 <label for="email">Form</label>
 

@@ -31,20 +31,20 @@ Route::get('/activities', [App\Http\Controllers\HomeController::class, 'Activiti
 
 Route::get('/activity_details/{id}', [App\Http\Controllers\HomeController::class, 'activity_details'])->name('activity_details');
 
-Route::get('loginlogs', [\App\Http\Controllers\MainController::class, 'loginlogs'])->name('login_logs');
+Route::get('loginlogs', [App\Http\Controllers\MainController::class, 'loginlogs'])->name('login_logs');
 
-Route::get('/students', [\App\Http\Controllers\HomeController::class, 'Students'])->name('student');
+Route::get('/students', [App\Http\Controllers\HomeController::class, 'Students'])->name('student');
 
-Route::get('/registered_students', [\App\Http\Controllers\HomeController::class, 'RegisteredStudents'])->name('registered_students');
+Route::get('/registered_students', [App\Http\Controllers\HomeController::class, 'RegisteredStudents'])->name('registered_students');
 
-Route::get('/adminprofile', [\App\Http\Controllers\HomeController::class, 'AdminProfile'])->name('adminprofile');
+Route::get('/adminprofile', [App\Http\Controllers\HomeController::class, 'AdminProfile'])->name('adminprofile');
 
-Route::get('/register_students', [\App\Http\Controllers\HomeController::class, 'RegisteringStudent'])->name('register_students');
+Route::get('/register_students', [App\Http\Controllers\HomeController::class, 'RegisteringStudent'])->name('register_students');
 
 
-Route::post('/doingregistration', [\App\Http\Controllers\MainController::class, 'RegisterStudents'])->name('RegisterStudents');
+Route::post('/doingregistration', [App\Http\Controllers\MainController::class, 'RegisterStudents'])->name('RegisterStudents');
 
-Route::get('/student_details/{unique_id}', [\App\Http\Controllers\HomeController::class, 'StudentDetails'])->name('student_details');
+Route::get('/student_details/{unique_id}', [App\Http\Controllers\HomeController::class, 'StudentDetails'])->name('student_details');
 
 
 Route::post('/promte_student/{id}', [App\Http\Controllers\MainController::class, 'promote_student'])->name('promote_student');

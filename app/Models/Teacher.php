@@ -33,5 +33,6 @@ class Teacher extends Model
         'emergency_contact_name',
         'emergency_contact_relationship',
         'emergency_contact_phone',
+        'unique_id',
         ];
 }

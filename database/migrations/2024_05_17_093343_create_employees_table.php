@@ -56,6 +56,7 @@ return new class extends Migration
             $table->text('skills_certifications')->nullable();
             $table->string('language_proficiency')->nullable();
             $table->string('photograph_path')->nullable();
+            $table->string('unique_id');
             $table->timestamps();
         });
     }

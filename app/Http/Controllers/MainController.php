@@ -269,6 +269,7 @@ class MainController extends Controller
         $teacher->emergency_contact_phone = $request->emergency_contact_phone;
         $teacher->attendance_records = $request->attendance_records;
         $teacher->performance_evaluations = $request->performance_evaluations;
+        $data->unique_id = Str::random(32);
 
         $teacher->save();
 
@@ -338,6 +339,7 @@ class MainController extends Controller
         $data->medical_history = $request->medical_history;
         $data->disability_status = $request->disability_status;
         $data->skills_certifications = $request->skills_certifications;
+        $data->unique_id = Str::random(32);
 
         $data->save();
 

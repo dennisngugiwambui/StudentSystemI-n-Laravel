@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\Leadership;
 use Illuminate\Http\Request;
 use App\Models\Activities;
@@ -175,7 +176,8 @@ class HomeController extends Controller
 
     public function Employees()
     {
-        return view('Admin.Employees');
+        $employee = Employee::all();
+        return view('Admin.Employees', compact('employee'));
     }
 
     public function new_Employees()

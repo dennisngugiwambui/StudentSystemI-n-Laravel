@@ -45,5 +45,6 @@ class Employee extends Model
         'skills_certifications',
         'language_proficiency',
         'photograph_path',
+        'unique_id',
     ];
 }

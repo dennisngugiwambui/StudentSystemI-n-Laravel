@@ -32,7 +32,7 @@
             </div>
 
             <div>
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('employees.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Personal Information Card -->
                     <div class="card mb-3 border-primary">

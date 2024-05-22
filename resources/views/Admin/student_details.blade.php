@@ -95,9 +95,9 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Profile Picture" class="rounded-circle profile-picture" width="150">
-                        <p class="text-secondary mb-1">Dennis Ngugi Wambui</p>
-                        <p class="text-muted font-size-sm">Since 2022</p>
-                        <button class="btn btn-primary">Follow</button>
+                        <p class="text-secondary mb-1">{{$student->student_name}}</p>
+                        <p class="text-muted font-size-sm">Since {{$student->created_at}}</p>
+
                         <button class="btn btn-outline-primary">Message</button>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                                 <h6 class="mb-0">Nemis</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $student->birthCertOrNemis }}
+                                {{ $student->birth_cert_or_nemis }}
                             </div>
                         </div>
                         <hr>

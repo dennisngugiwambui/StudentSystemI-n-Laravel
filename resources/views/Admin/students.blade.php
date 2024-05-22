@@ -134,7 +134,7 @@
                             <td>{{$data->birthcertOrNemis}}</td>
                             <td>{{$data->class}}</td>
                             <td>{{$data->parent_phone}}</td>
-                            <td><a class="btn btn-sm btn-primary" href="/registerd_students">Detail</a></td>
+                            <td><a class="btn btn-sm btn-primary" href="{{ route('student_details', ['unique_id' => $item->unique_id]) }}">Detail</a></td>
                         </tr>
                     @endforeach
 

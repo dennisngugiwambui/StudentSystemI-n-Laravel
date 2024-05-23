@@ -47,7 +47,7 @@
                             <td>{{$data->phone_number}}</td>
                             <td>{{$data->department}}</td>
                             <td>{{$data->designation}}</td>
-                            <td><a class="btn btn-sm btn-primary" href="{{route('EmployeeDetails', [])}}"><i class="fa fa-eye"> </i>Detail</a></td>
+                            <td><a class="btn btn-sm btn-primary" href="{{ route('EmployeeDetails', ['unique_id' => $data->unique_id]) }}"><i class="fa fa-eye"> </i>Detail</a></td>
                         </tr>
                     @endforeach
 

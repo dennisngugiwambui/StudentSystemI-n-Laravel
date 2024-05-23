@@ -372,6 +372,7 @@ class MainController extends Controller
         $communication->event_date = $request->event_date;
         $communication->event_time = $request->event_time;
         $communication->message_content = $request->message_content;
+        $communication->unique_id=Str::random(32);
         $communication->save();
 
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('event_date');
             $table->time('event_time');
             $table->text('message_content')->nullable();
+            $table->string('unique_id');
             $table->timestamps();
         });
     }

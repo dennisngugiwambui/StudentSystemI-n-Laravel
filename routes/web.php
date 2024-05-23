@@ -88,6 +88,8 @@ Route::post('/Employees_Store', [App\Http\Controllers\MainController::class, 'Em
 
 Route::get('/new_Communication', [App\Http\Controllers\HomeController::class, 'new_ParentsCommunication'])->name('new_ParentsCommunication');
 
+Route::get('/EmployeeDetails/{unique_id}', [App\Http\Controllers\HomeController::class, 'EmployeeDetails'])->name('EmployeeDetails');
+
 
 Route::post('/new_CommunicationPost', [\App\Http\Controllers\MainController::class, 'new_Communication'])->name('new_Communication');
 

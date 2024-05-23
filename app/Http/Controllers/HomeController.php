@@ -210,6 +210,12 @@ class HomeController extends Controller
         return view('Admin.newCommunication');
     }
 
+    public function EmployeeDetails(Request $request)
+    {
+        $employee = Employee::find($request->unique_id);
+        return view('Admin.EmployeeDetails', compact('employee'));
+    }
+
 
 
 

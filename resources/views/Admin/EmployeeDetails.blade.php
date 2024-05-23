@@ -1,8 +1,39 @@
 @extends('Admin.app')
 
 @section('content')
+    <!-- Custom Styles -->
+    <style>
+        .profile-header {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 3rem 0;
+        }
+        .profile-header img {
+            border: 5px solid #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .profile-header h2 {
+            font-weight: bold;
+        }
+        .profile-header p {
+            font-size: 1.2rem;
+        }
+        .list-group-item {
+            border: none;
+            border-left: 5px solid #a777e3;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .list-group-item strong {
+            color: #a777e3;
+        }
+        .container {
+            margin-top: -50px;
+        }
+    </style>
+
     <!-- Profile Header -->
-    <div class="profile-header bg-primary text-white text-center py-5">
+    <div class="profile-header text-center">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-3">

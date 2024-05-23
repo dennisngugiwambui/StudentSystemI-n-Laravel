@@ -31,10 +31,10 @@
                     <tr class="text-white">
                         <th scope="col"><input class="form-check-input" type="checkbox"></th>
                         <th scope="col">Name</th>
-                        <th scope="col">Joined</th>
-                        <th scope="col">ID</th>
-                        <th scope="col">Role</th>
+                        <th scope="col">Gender</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Designation</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -43,11 +43,11 @@
                         <tr>
                             <td><input class="form-check-input" type="checkbox"></td>
                             <td>{{$data->full_name}}</td>
-                            <td>{{$data->from}}</td>
-                            <td>{{$data->birthcertOrNemis}}</td>
-                            <td>{{$data->class}}</td>
-                            <td>{{$data->parent_phone}}</td>
-                            <td><a class="btn btn-sm btn-primary" href="/registerd_students">Detail</a></td>
+                            <td>{{$data->gender}}</td>
+                            <td>{{$data->phone_number}}</td>
+                            <td>{{$data->department}}</td>
+                            <td>{{$data->designation}}</td>
+                            <td><a class="btn btn-sm btn-primary" href="/registerd_students"><i class="fa fa-eye"> </i>Detail</a></td>
                         </tr>
                     @endforeach
 

@@ -3,8 +3,7 @@
 @section('content')
 
     <style>
-
-        .container-fluid{
+        .container-fluid {
             background: #0dcaf0;
         }
         /* Custom CSS for fancy form styling */
@@ -36,9 +35,7 @@
             background-color: #e9ecef; /* Set fancy background color on focus */
             border-color: #80bdff; /* Set fancy border color on focus */
         }
-
     </style>
-
 
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
@@ -46,7 +43,7 @@
                 <h6 class="mb-0">Register students</h6>
             </div>
 
-            <div >
+            <div>
                 <form method="post" action="{{ route('RegisterTeacher') }}">
                     @csrf
                     <!-- Personal Information Card -->
@@ -140,33 +137,34 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Employment Status</label><br>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="employment_status" id="fullTime" value="full-time" {{ old('employment_status') == 'full-time' ? 'checked' : '' }} required>
-                                    <label class="form-check-label" for="fullTime">Full-time</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="employment_status" id="partTime" value="part-time" {{ old('employment_status') == 'part-time' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="partTime">Part-time</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="employment_status" id="substitute" value="substitute" {{ old('employment_status') == 'substitute' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="substitute">Substitute</label>
-                                </div>
+                                <label for="employmentStatus">Employment Status</label>
+                                <select class="form-control select2" id="employmentStatus" name="employment_status" required>
+                                    <option value="" disabled selected>Select employment status</option>
+                                    <option value="full-time" {{ old('employment_status') == 'full-time' ? 'selected' : '' }}>Full-time</option>
+                                    <option value="part-time" {{ old('employment_status') == 'part-time' ? 'selected' : '' }}>Part-time</option>
+                                    <option value="substitute" {{ old('employment_status') == 'substitute' ? 'selected' : '' }}>Substitute</option>
+                                </select>
                                 @error('employment_status')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="hireDate">Hire Date</label>
-                                <input type="date" class="form-control" id="hireDate" name="hire_date" value="{{ old('hire_date') }}" required>
+                                <input type="date" class="form-control" id="hireDate" name="hire_date" value="{{ old('hire_date', now()->format('Y-m-d')) }}" required>
                                 @error('hire_date')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="salary">Salary or Pay Grade</label>
-                                <input type="text" class="form-control" id="salary" name="salary" value="{{ old('salary') }}" required>
+                                <select class="form-control select2" id="salary" name="salary" required>
+                                    <option value="" disabled selected>Select pay grade</option>
+                                    <option value="K" {{ old('salary') == 'K' ? 'selected' : '' }}>K</option>
+                                    <option value="J" {{ old('salary') == 'J' ? 'selected' : '' }}>J</option>
+                                    <option value="H" {{ old('salary') == 'H' ? 'selected' : '' }}>H</option>
+                                    <option value="G" {{ old('salary') == 'G' ? 'selected' : '' }}>G</option>
+                                    <!-- Add other pay grades as needed -->
+                                </select>
                                 @error('salary')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -212,7 +210,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="yearsExperience">Years of Teaching Experience</label>
-                                <input type="number" class="form-control" id="yearsExperience" name="years_experience" value="{{ old('years_experience') }}" required>
+                                <input type="number" class="form-control" id="yearsExperience" name="years_experience" value="{{ old('years_experience', 0) }}" required>
                                 @error('years_experience')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -271,32 +269,22 @@
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            {{--                        <div class="form-group">--}}
-                            {{--                            <label for="attendanceRecords">Attendance or Leave Records</label>--}}
-                            {{--                            <textarea class="form-control" id="attendanceRecords" name="attendance_records" rows="3" required>{{ old('attendance_records') }}</textarea>--}}
-                            {{--                            @error('attendance_records')--}}
-                            {{--                                <span class="text-danger">{{ $message }}</span>--}}
-                            {{--                            @enderror--}}
-                            {{--                        </div>--}}
-                            {{--                        <div class="form-group">--}}
-                            {{--                            <label for="performanceEvaluations">Performance Evaluations or Appraisals</label>--}}
-                            {{--                            <textarea class="form-control" id="performanceEvaluations" name="performance_evaluations" rows="3" required>{{ old('performance_evaluations') }}</textarea>--}}
-                            {{--                            @error('performance_evaluations')--}}
-                            {{--                                <span class="text-danger">{{ $message }}</span>--}}
-                            {{--                            @enderror--}}
-                            {{--                        </div>--}}
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-
         </div>
     </div>
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection

@@ -133,6 +133,10 @@ class HomeController extends Controller
 
         return view('Admin.teachers', compact('teacher'));
     }
+    public function TeacherDetails()
+    {
+        return view('Admin.TeacherDetails');
+    }
 
     function Punishment()
     {

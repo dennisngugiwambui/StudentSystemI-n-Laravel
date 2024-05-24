@@ -7,6 +7,21 @@
         .container-fluid{
             background: #0dcaf0;
         }
+        /* Custom CSS for fancy button styling */
+        .fancy-button {
+            background-color: #8d0d0d; /* Blue background */
+            color: #fff; /* White text color */
+            border: none; /* No border */
+            padding: 8px 16px; /* Padding */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove default underline */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+        }
+
+        .fancy-button:hover {
+            background-color: #b3b3b3; /* Darker blue background on hover */
+        }
+
     </style>
 
     <!-- Sale & Revenue Start -->
@@ -94,7 +109,7 @@
                             <td>{{$data->phone_number}}</td>
                             <td>{{$data->gender}}</td>
                             <td>{{$data->major}}</td>
-                            <td><a class="btn btn-sm btn-primary" href="/registerd_students">Detail</a></td>
+                            <td><a class="btn btn-sm btn-primary fancy-button" href=""><i class="fa fa-eye"></i> </a></td>
                         </tr>
                     @endforeach
 

@@ -55,7 +55,7 @@
         color: black;
     }
     .container-fluid{
-        background: #0dcaf0;
+        background: #4DC7A0;
     }
 
     /* Add more custom styling as needed */

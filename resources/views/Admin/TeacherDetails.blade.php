@@ -3,13 +3,13 @@
 @section('content')
 
     <!-- Profile Header -->
-    <div class="Teachers-profile" style="background-color: #f0f0f0;">
+    <div class="Teachers-profile">
         <div class="container">
             <div class="row">
                 <!-- Profile Picture and Cover Image -->
                 <div class="col-md-4 mb-3">
                     <div class="card shadow-lg border-primary">
-                        <img src="teacher-profile-image.jpg" class="card-img-top rounded-circle" alt="Profile Picture">
+                        <img src="https://media.istockphoto.com/id/1327592506/vector/default-avatar-photo-placeholder-icon-grey-profile-picture-business-man.jpg?s=612x612&w=0&k=20&c=BpR0FVaEa5F24GIw7K8nMWiiGmbb8qmhfkpXcp1dhQg=" class="card-img-top rounded-circle" alt="Profile Picture">
                         <div class="card-body text-center">
                             <h5 class="card-title text-primary fw-bold mb-0">Teacher's Name</h5>
                             <!-- Edit Profile Button -->
@@ -35,7 +35,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Performance Details -->
     <div class="container mt-4">
@@ -83,6 +82,7 @@
                 <a href="#" class="btn btn-primary mt-3">Edit Roles</a>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection

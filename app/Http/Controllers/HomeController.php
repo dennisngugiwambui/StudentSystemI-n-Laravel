@@ -133,9 +133,11 @@ class HomeController extends Controller
 
         return view('Admin.teachers', compact('teacher'));
     }
-    public function TeacherDetails()
+    public function TeacherDetails($unique_id)
     {
-        return view('Admin.TeacherDetails');
+
+        $teacher=Teacher::where('unique_id',$unique_id)->first();
+        return view('Admin.TeacherDetails', compact('teacher'));
     }
 
     function Punishment()

@@ -238,9 +238,11 @@ class MainController extends Controller
             'emergency_contact_name' => 'required|string|max:255',
             'emergency_contact_relationship' => 'required|string|max:255',
             'emergency_contact_phone' => 'required|string|max:20',
-            'attendance_records' => 'required|string',
-            'performance_evaluations' => 'required|string',
+            'attendance_records' => 'nullable|string',
+            'performance_evaluations' => 'nullable|string',
         ]);
+
+
 
         $teacher = new Teacher();
 
@@ -267,17 +269,19 @@ class MainController extends Controller
         $teacher->emergency_contact_name = $request->emergency_contact_name;
         $teacher->emergency_contact_relationship = $request->emergency_contact_relationship;
         $teacher->emergency_contact_phone = $request->emergency_contact_phone;
-        $teacher->attendance_records = $request->attendance_records;
-        $teacher->performance_evaluations = $request->performance_evaluations;
-        $data->unique_id = Str::random(32);
+       // $teacher->attendance_records = $request->attendance_records;
+       // $teacher->performance_evaluations = $request->performance_evaluations;
+        //$teacher->unique_id = Str::random(32);
 
         $teacher->save();
 
+        //return response()->json($teacher);
+
         Toastr::success('Teacher registered successfully', 'Success', ["positionClass" => "toast-bottom-left"]);
 
-
-        return redirect()->back()->with('success', 'teacher successfully registered');
+        return redirect()->back()->with('success', 'Teacher successfully registered');
     }
+
 
     public function Employees_Store(Request $request)
     {

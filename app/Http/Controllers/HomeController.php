@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Models\Leadership;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Models\Activities;
 use Brian2694\Toastr\Toastr;
@@ -128,8 +129,9 @@ class HomeController extends Controller
 
     function Teachers()
     {
+        $teacher=Teacher::all();
 
-        return view('Admin.teachers');
+        return view('Admin.teachers', compact('teacher'));
     }
 
     function Punishment()

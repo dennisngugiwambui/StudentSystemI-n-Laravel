@@ -65,7 +65,7 @@
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Recent Salse</h6>
+                <h6 class="mb-0">Teachers Record</h6>
                 <a href="/new_teacher" class="btn btn-danger"><i class="fa fa-plus"></i>New Teacher </a>
             </div>
             <div class="table-responsive">
@@ -78,25 +78,25 @@
                     <tr class="text-white">
                         <th scope="col"><input class="form-check-input" type="checkbox"></th>
                         <th scope="col">Name</th>
-                        <th scope="col">Joined</th>
-                        <th scope="col">ID</th>
-                        <th scope="col">TSCNumber</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Major</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-{{--                    @foreach($data as $data)--}}
-{{--                        <tr>--}}
-{{--                            <td><input class="form-check-input" type="checkbox"></td>--}}
-{{--                            <td>{{$data->student_name}}</td>--}}
-{{--                            <td>{{$data->from}}</td>--}}
-{{--                            <td>{{$data->birthcertOrNemis}}</td>--}}
-{{--                            <td>{{$data->class}}</td>--}}
-{{--                            <td>{{$data->parent_phone}}</td>--}}
-{{--                            <td><a class="btn btn-sm btn-primary" href="/registerd_students">Detail</a></td>--}}
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
+                    @foreach($teacher as $data)
+                        <tr>
+                            <td><input class="form-check-input" type="checkbox"></td>
+                            <td>{{$data->full_name}}</td>
+                            <td>{{$data->email}}</td>
+                            <td>{{$data->phone_number}}</td>
+                            <td>{{$data->gender}}</td>
+                            <td>{{$data->major}}</td>
+                            <td><a class="btn btn-sm btn-primary" href="/registerd_students">Detail</a></td>
+                        </tr>
+                    @endforeach
 
 
                     </tbody>

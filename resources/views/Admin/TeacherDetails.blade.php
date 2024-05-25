@@ -35,10 +35,48 @@
         .table th, .table td {
             vertical-align: middle;
         }
+
+        .btn-fancy {
+            background-color: #6f42c1;
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-fancy:hover {
+            background-color: #563d7c;
+        }
+
+        .container {
+
+        }
+
+        .fancy-list .list-group-item {
+            background-color: #f8f9fa;
+            border: none;
+            padding: 15px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .fancy-list .list-group-item span {
+            color: #007bff;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .card {
+                margin-bottom: 20px;
+            }
+
+            .table thead tr {
+                background-color: #0062cc;
+            }
+        }
     </style>
 
     <!-- Profile Header -->
-    <div class="Teachers-profile" style="">
+    <div class="Teachers-profile">
         <div class="container">
             <div class="row">
                 <!-- Profile Picture and Cover Image -->
@@ -52,7 +90,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Personal Information -->
                 <!-- Personal Information -->
                 <div class="col-md-9 col-sm-12 mb-3">
                     <div class="card shadow-lg border-primary">
@@ -75,8 +112,29 @@
                                 <li class="list-group-item"><span class="fw-bold">Emergency Contact Phone:</span> {{$teacher->emergency_contact_phone}}</li>
                             </ul>
                         </div>
+                        <!-- Buttons for Actions -->
+                        <div class="container mt-4 text-center">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <a href="" class="btn btn-fancy btn-block">Add Marks</a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <a href="" class="btn btn-fancy btn-block">Take Class Register</a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <a href="" class="btn btn-fancy btn-block">Request Leave</a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <a href="" class="btn btn-fancy btn-block">Send Message to Admin</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+
 
         <!-- Performance Details -->
         <div class="container mt-4">
@@ -95,14 +153,14 @@
                             </tr>
                             </thead>
                             <tbody>
-{{--                            @foreach($teacher->performance_details as $performance)--}}
-{{--                                <tr>--}}
-{{--                                    <td>{{ $performance->class }}</td>--}}
-{{--                                    <td>{{ $performance->average_grade }}%</td>--}}
-{{--                                    <td>{{ $performance->attendance_rate }}%</td>--}}
-{{--                                    <td>{{ $performance->test_scores }}%</td>--}}
-{{--                                </tr>--}}
-{{--                            @endforeach--}}
+                            {{-- @foreach($teacher->performance_details as $performance) --}}
+                            {{-- <tr> --}}
+                            {{-- <td>{{ $performance->class }}</td> --}}
+                            {{-- <td>{{ $performance->average_grade }}%</td> --}}
+                            {{-- <td>{{ $performance->attendance_rate }}%</td> --}}
+                            {{-- <td>{{ $performance->test_scores }}%</td> --}}
+                            {{-- </tr> --}}
+                            {{-- @endforeach --}}
                             <!-- Add more rows for other classes -->
                             </tbody>
                         </table>
@@ -118,9 +176,9 @@
                     <h5 class="card-title text-primary fw-bold mb-4">Role Management</h5>
                     <!-- Assigned Roles -->
                     <ul class="list-group">
-{{--                        @foreach($teacher->roles as $role)--}}
-{{--                            <li class="list-group-item">{{ $role->role_name }} - <span class="text-primary">{{ $role->role_description }}</span></li>--}}
-{{--                        @endforeach--}}
+                        {{-- @foreach($teacher->roles as $role) --}}
+                        {{-- <li class="list-group-item">{{ $role->role_name }} - <span class="text-primary">{{ $role->role_description }}</span></li> --}}
+                        {{-- @endforeach --}}
                         <!-- Add more roles -->
                     </ul>
                     <!-- Edit Roles Button -->
@@ -131,6 +189,3 @@
     </div>
 
 @endsection
-
-
-

@@ -94,7 +94,7 @@ Route::get('/EmployeeDetails/{unique_id}', [App\Http\Controllers\HomeController:
 Route::post('/new_CommunicationPost', [\App\Http\Controllers\MainController::class, 'new_Communication'])->name('new_Communication');
 
 
-Route::get('/TeacherDetails', [App\Http\Controllers\HomeController::class, 'TeacherDetails'])->name('TeacherDetails');
+Route::get('/TeacherDetails/{unique_id}', [App\Http\Controllers\HomeController::class, 'TeacherDetails'])->name('TeacherDetails');
 
 
 

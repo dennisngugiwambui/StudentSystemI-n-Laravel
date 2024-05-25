@@ -109,7 +109,7 @@
                             <td>{{$data->phone_number}}</td>
                             <td>{{$data->gender}}</td>
                             <td>{{$data->major}}</td>
-                            <td><a class="btn btn-sm btn-primary fancy-button" href=""><i class="fa fa-eye"></i> </a></td>
+                            <td><a class="btn btn-sm btn-primary fancy-button" href="{{ route('TeacherDetails', ['unique_id' => $data->unique_id]) }}"><i class="fa fa-eye"></i> </a></td>
                         </tr>
                     @endforeach
 

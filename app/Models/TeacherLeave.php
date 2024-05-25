@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class TeacherLeave extends Model
 {
     use HasFactory;
+    
 }

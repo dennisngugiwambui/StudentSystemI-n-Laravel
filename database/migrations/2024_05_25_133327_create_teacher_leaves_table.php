@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('teacher_leaves', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('teacher_id')->constrained()->onDelete('cascade');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('reason');
+            $table->enum('status', ['pending', 'approved', 'rejected', 'passed'])->default('pending');
+            $table->bigInteger('unique_id');
             $table->timestamps();
         });
     }

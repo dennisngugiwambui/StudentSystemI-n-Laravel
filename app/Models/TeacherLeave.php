@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class TeacherLeave extends Model
 {
     use HasFactory;
-    
+
+    protected $fillable = [
+        'teacher_id',
+        'start_date',
+        'end_date',
+        'reason',
+        'status',
+        'unique_id',
+    ];
 }

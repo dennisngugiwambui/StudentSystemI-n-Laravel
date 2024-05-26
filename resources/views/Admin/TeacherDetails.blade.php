@@ -73,6 +73,25 @@
                 background-color: #0062cc;
             }
         }
+
+        /* Center modal on the screen */
+        .modal-dialog-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100% - 1rem);
+        }
+
+        /* Input field styling */
+        .modal-content .form-control {
+            background-color: white;
+            color: black;
+        }
+
+        .modal-content .form-control:focus {
+            background-color: white;
+            color: black;
+        }
     </style>
 
     <!-- Profile Header -->
@@ -116,16 +135,16 @@
                         <div class="container mt-4 text-center">
                             <div class="row">
                                 <div class="col-md-3 col-sm-6 mb-3">
-                                    <a href="" class="btn btn-fancy btn-block">Add Marks</a>
+                                    <a href="#" class="btn btn-fancy btn-block" data-toggle="modal" data-target="#addMarksModal">Add Marks</a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 mb-3">
-                                    <a href="" class="btn btn-fancy btn-block">Take Class Register</a>
+                                    <a href="#" class="btn btn-fancy btn-block" data-toggle="modal" data-target="#takeRegisterModal">Take Class Register</a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 mb-3">
-                                    <a href="" class="btn btn-fancy btn-block">Request Leave</a>
+                                    <a href="#" class="btn btn-fancy btn-block" data-toggle="modal" data-target="#requestLeaveModal">Request Leave</a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 mb-3">
-                                    <a href="" class="btn btn-fancy btn-block">Send Message to Admin</a>
+                                    <a href="#" class="btn btn-fancy btn-block" data-toggle="modal" data-target="#sendMessageModal">Send Message to Admin</a>
                                 </div>
                             </div>
                         </div>
@@ -133,8 +152,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <!-- Performance Details -->
         <div class="container mt-4">
@@ -156,9 +173,9 @@
                             {{-- @foreach($teacher->performance_details as $performance) --}}
                             {{-- <tr> --}}
                             {{-- <td>{{ $performance->class }}</td> --}}
-                            {{-- <td>{{ $performance->average_grade }}%</td> --}}
-                            {{-- <td>{{ $performance->attendance_rate }}%</td> --}}
-                            {{-- <td>{{ $performance->test_scores }}%</td> --}}
+                            {{-- <td>{{ $performance->average_grade }}%</></td> --}}
+                            {{-- <td>{{ $performance->attendance_rate }}%</></td> --}}
+                            {{-- <td>{{ $performance->test_scores }}%</></td> --}}
                             {{-- </tr> --}}
                             {{-- @endforeach --}}
                             <!-- Add more rows for other classes -->
@@ -187,5 +204,157 @@
             </div>
         </div>
     </div>
+
+    <!-- Add Marks Modal -->
+    <div class="modal fade" id="addMarksModal" tabindex="-1" role="dialog" aria-labelledby="addMarksModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addMarksModalLabel">Add Marks</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add Marks Form -->
+                    <form>
+                        <!-- Your form fields here -->
+                        <div class="form-group">
+                            <label for="studentId">Student ID</label>
+                            <input type="text" class="form-control" id="studentId" name="studentId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="marks">Marks</label>
+                            <input type="number" class="form-control" id="marks" name="marks" required>
+                        </div>
+                        <!-- Add more fields as necessary -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Take Class Register Modal -->
+    <div class="modal fade" id="takeRegisterModal" tabindex="-1" role="dialog" aria-labelledby="takeRegisterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="takeRegisterModalLabel">Take Class Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Take Register Form -->
+                    <form>
+                        <!-- Your form fields here -->
+                        <div class="form-group">
+                            <label for="class">Class</label>
+                            <input type="text" class="form-control" id="class" name="class" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <!-- Add more fields as necessary -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Leave Modal -->
+    <div class="modal fade" id="requestLeaveModal" tabindex="-1" role="dialog" aria-labelledby="requestLeaveModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="requestLeaveModalLabel">Request Leave</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Request Leave Form -->
+                    <form>
+                        <!-- Leave Type Dropdown with select2 -->
+                        <div class="form-group">
+                            <label for="leaveType">Leave Type</label>
+                            <select class="form-control select2" id="leaveType" name="leaveType" required>
+                                <option value="annual">Annual Leave</option>
+                                <option value="maternity_paternity">Maternity & Paternity Leave</option>
+                                <option value="compassionate">Compassionate Leave</option>
+                                <option value="study">Study Leave</option>
+                                <option value="special">Special Leave</option>
+                                <option value="diplomat_spouse">Leave to Spouses of Diplomats</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">Reason</label>
+                            <textarea class="form-control" id="reason" name="reason" rows="3" required></textarea>
+                        </div>
+                        <!-- Add more fields as necessary -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Send Message to Admin Modal -->
+    <div class="modal fade" id="sendMessageModal" tabindex="-1" role="dialog" aria-labelledby="sendMessageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sendMessageModalLabel">Send Message to Admin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Send Message Form -->
+                    <form>
+                        <!-- Your form fields here -->
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                        </div>
+                        <!-- Add more fields as necessary -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include select2 CSS and JS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize select2 on leaveType dropdown
+            $('.select2').select2();
+        });
+    </script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 @endsection

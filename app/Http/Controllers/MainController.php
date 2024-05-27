@@ -451,17 +451,19 @@ class MainController extends Controller
     {
         $leave = new TeacherLeave();
 
-        $request->validate([
-            'teacher_id' => 'required',
+        // Validate the request
+        $validatedData = $request->validate([
+            'teacher_id' => 'required|exists:teachers,id',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
             'reason' => 'required|string',
-            'status' => 'required|string',
-            'unique_id' => 'required|string',
         ]);
 
+        // Find the user
         $user = Teacher::where('id', $request->teacher_id)->firstOrFail();
 
+        // Create a new TeacherLeave
+        $leave = new TeacherLeave();
         $leave->teacher_id = $user->id;
         $leave->start_date = $request->start_date;
         $leave->end_date = $request->end_date;
@@ -469,9 +471,11 @@ class MainController extends Controller
         $leave->status = 'pending';
         $leave->unique_id = Str::random(32);
 
+        // Save the leave request
         $leave->save();
 
-        //return response()->json($group);
+        // Display success message
+
         Toastr::success('Teachers leave added successfully', 'Success', ["positionClass" => "toast-bottom-left"]);
 
         return redirect()->back()->with('success', 'Teachers Leave added successfully');

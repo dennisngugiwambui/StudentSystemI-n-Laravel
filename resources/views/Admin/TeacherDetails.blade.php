@@ -277,8 +277,23 @@
                 </div>
                 <div class="modal-body">
                     <!-- Request Leave Form -->
+                    <!-- Form -->
                     <form method="post" action="{{ route('RequestLeave', $teacher->id) }}">
                         @csrf
+                        <!-- Hidden field for teacher_id -->
+                        <input type="hidden" name="teacher_id" value="{{ $teacher->id }}">
+
+                        <!-- Display validation errors -->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <!-- Leave Type Dropdown with select2 -->
                         <div class="form-group">
                             <label for="leaveType">Leave Type</label>
@@ -291,19 +306,22 @@
                                 <option value="diplomat_spouse">Leave to Spouses of Diplomats</option>
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label for="startDate">Start Date</label>
-                            <input type="date" class="form-control" id="startDate" name="startDate" required>
+                            <input type="date" class="form-control" id="startDate" name="start_date" required>
                         </div>
+
                         <div class="form-group">
                             <label for="endDate">End Date</label>
-                            <input type="date" class="form-control" id="endDate" name="endDate" required>
+                            <input type="date" class="form-control" id="endDate" name="end_date" required>
                         </div>
+
                         <div class="form-group">
                             <label for="reason">Reason</label>
                             <textarea class="form-control" id="reason" name="reason" rows="3" required></textarea>
                         </div>
-                        <!-- Add more fields as necessary -->
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

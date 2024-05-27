@@ -160,15 +160,15 @@ class HomeController extends Controller
 
     public function searchStudents(Request $request)
     {
-        $searchText = $request->input('searchText');
-
-        // Perform a search query to find students based on $searchText
-        $students = StudentRegister::where('id', 'like', '%' . $searchText . '%')
-            ->orWhere('name', 'like', '%' . $searchText . '%')
-            ->get();
+        $searchText = $request->query('searchText');
+        $students = StudentRegister::where('name', 'LIKE', "%{$searchText}%")
+            ->orWhere('id', 'LIKE', "%{$searchText}%")
+            ->get(['id', 'name']);
 
         return response()->json($students);
     }
+
+
 
     public function leadership()
     {

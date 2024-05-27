@@ -50,10 +50,11 @@
                     <h1>LEAVEOUT SHEET</h1>
                     <div class="mb-3">
                         <label for="searchStudent" class="form-label">Search Student</label>
-                        <input type="text" class="form-control" id="searchStudent" name="searchStudent" required>
-                        <div id="studentSearchResults" class="dropdown-menu position-absolute" style="display: none;">
-                            <ul class="list-group" style="list-style: none; margin: 0; padding: 0;"></ul>
-                        </div>
+                        <select class="form-control">
+                            @foreach($students as $student)
+                              <option name="{{$student->id - $student->full_name}}">{{$student->id}}-{{$student->student_name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="reason_for_leaveout" class="form-label">Student Reg Number</label>
@@ -161,7 +162,7 @@
 
 
 <div id="defaultDialog">
-    <h1>hELLO
+
     <div id="Grid"></div>
 </div>
 

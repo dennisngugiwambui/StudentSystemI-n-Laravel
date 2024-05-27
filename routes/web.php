@@ -100,5 +100,5 @@ Route::get('/TeacherDetails/{unique_id}', [App\Http\Controllers\HomeController::
 Route::post('/RequestLeave/{id}', [App\Http\Controllers\MainController::class, 'RequestLeave'])->name('RequestLeave');
 
 
-;
+Route::get('/api/search-students', [App\Http\Controllers\HomeController::class, 'searchStudents'])->name('leaveout.store');
 

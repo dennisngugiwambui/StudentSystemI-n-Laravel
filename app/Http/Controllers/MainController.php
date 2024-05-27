@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\Leadership;
 use App\Models\NonTeachingStuff;
 use App\Models\Teacher;
+use App\Models\TeacherLeave;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Toastr;
@@ -444,6 +445,37 @@ class MainController extends Controller
         return $message;
     }
 
+
+
+    public function RequestLeave(Request $request)
+    {
+        $leave = new TeacherLeave();
+
+        $request->validate([
+            'teacher_id' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+            'reason' => 'required|string',
+            'status' => 'required|string',
+            'unique_id' => 'required|string',
+        ]);
+
+        $user = Teacher::where('id', $request->teacher_id)->firstOrFail();
+
+        $leave->teacher_id = $user->id;
+        $leave->start_date = $request->start_date;
+        $leave->end_date = $request->end_date;
+        $leave->reason = $request->reason;
+        $leave->status = 'pending';
+        $leave->unique_id = Str::random(32);
+
+        $leave->save();
+
+        //return response()->json($group);
+        Toastr::success('Teachers leave added successfully', 'Success', ["positionClass" => "toast-bottom-left"]);
+
+        return redirect()->back()->with('success', 'Teachers Leave added successfully');
+    }
 
 
 

@@ -97,6 +97,8 @@ Route::post('/new_CommunicationPost', [\App\Http\Controllers\MainController::cla
 Route::get('/TeacherDetails/{unique_id}', [App\Http\Controllers\HomeController::class, 'TeacherDetails'])->name('TeacherDetails');
 
 
+Route::get('/RequestLeave/{id}', [App\Http\Controllers\MainController::class, 'RequestLeave'])->name('RequestLeave');
+
 
 ;
 

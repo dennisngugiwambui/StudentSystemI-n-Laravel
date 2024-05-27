@@ -1,7 +1,7 @@
 @extends('Admin.app')
 
 @section('content')
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         .profile-img {
             width: 150px;
@@ -277,7 +277,8 @@
                 </div>
                 <div class="modal-body">
                     <!-- Request Leave Form -->
-                    <form>
+                    <form method="post" action="{{ route('RequestLeave', $teacher->id) }}">
+                        @csrf
                         <!-- Leave Type Dropdown with select2 -->
                         <div class="form-group">
                             <label for="leaveType">Leave Type</label>
@@ -341,7 +342,6 @@
     </div>
 
     <!-- Include select2 CSS and JS -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
     <script>

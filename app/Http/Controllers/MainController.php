@@ -478,7 +478,7 @@ class MainController extends Controller
 
         Toastr::success('Teachers leave added successfully', 'Success', ["positionClass" => "toast-bottom-left"]);
 
-        return redirect()->back()->with('success', 'Teachers Leave added successfully');
+        return redirect()->back()->with('success', 'Teachers Leave added successfullies');
     }
 
 

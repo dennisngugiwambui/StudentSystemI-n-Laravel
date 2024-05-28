@@ -72,7 +72,9 @@
                         <label for="searchStudent" class="form-label">Search Student</label>
                         <select class="form-control" id="searchStudent" name="searchStudent" required>
                             @foreach($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->id }} - {{ $student->student_name }}</option>
+                                <option data-reg-number="{{ $student->id }}" data-name="{{ $student->student_name }}" value="{{ $student->id }}">
+                                    {{ $student->id }} - {{ $student->student_name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -292,36 +294,34 @@ function dialogOpen() {
     });
 </script>
 
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
         $(document).ready(function() {
+            // Initialize Select2
             $('#searchStudent').select2({
                 placeholder: 'Search for a student',
-                ajax: {
-                    url: '/api/search-students',
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            searchText: params.term // search term
-                        };
-                    },
-                    processResults: function (data) {
-                        return {
-                            results: data.results
-                        };
-                    },
-                    cache: true
-                },
-                minimumInputLength: 1
+                width: '100%'
             });
 
-            $('#searchStudent').on('select2:select', function (e) {
-                var data = e.params.data;
-                var studentDetails = data.text.split(' - ');
-                $('#reg_number').val(studentDetails[0]);
-                $('#student_name').val(studentDetails[1]);
+            // Handle student selection change
+            $('#searchStudent').on('change', function(e) {
+                var selectedOption = $(this).find('option:selected');
+                var regNumber = selectedOption.data('reg-number');
+                var studentName = selectedOption.data('name');
+
+                $('#reg_number').val(regNumber);
+                $('#student_name').val(studentName);
+            });
+
+            // Close dropdown when clicking outside
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('#searchStudent, .select2-container').length) {
+                    $('#searchStudent').select2('close');
+                }
             });
         });
     </script>

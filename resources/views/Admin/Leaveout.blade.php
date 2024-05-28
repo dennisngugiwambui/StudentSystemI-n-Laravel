@@ -1,17 +1,25 @@
 @extends('Admin.app')
 
 @section('content')
+
+    <!-- Include Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <style>
     /* Add custom styles for the form and background here */
-    body {
-        background-color: #f0f0f0; /* Set the background color */
+
+    .container-fluid{
+        background: white;
     }
 
     .leaveout-form {
         background-color: #fff; /* Set the form background color */
         padding: 20px;
         border-radius: 10px;
+        color: black;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a box shadow for the form */
+    }
+    h1{
+        color: black;
     }
 
     /* Change the input field background color on focus */
@@ -38,37 +46,44 @@
         background-color: white; /* Change to the desired color on focus */
         color: black;
     }
+
+    input {
+        background: white;
+    }
+
+    input:focus{
+        background: white;
+    }
+    .col-md-6{
+        background: #b3b3b3;
+    }
 </style>
 
 <div class="container-fluid pt-4 px-4">
     <div class="row">
         <div class="col-md-6">
             <div class="leaveout-form">
-                <form method="" action="">
+
+                <form method="POST" action="{{ route('leaveout.store') }}">
                     @csrf
 
                     <h1>LEAVEOUT SHEET</h1>
                     <div class="mb-3">
                         <label for="searchStudent" class="form-label">Search Student</label>
-                        <select class="form-control">
+                        <select class="form-control" id="searchStudent" name="searchStudent" required>
                             @foreach($students as $student)
-                              <option name="{{$student->id - $student->full_name}}">{{$student->id}}-{{$student->student_name}}</option>
+                                <option value="{{ $student->id }}">{{ $student->id }} - {{ $student->student_name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="reason_for_leaveout" class="form-label">Student Reg Number</label>
-                        <input type="text" class="form-control" id="id" name="reg_number" readonly>
+                        <label for="reg_number" class="form-label">Student Reg Number</label>
+                        <input type="text" class="form-control" id="reg_number" name="reg_number" readonly>
                     </div>
                     <div class="mb-3">
-                        <label for="reason_for_leaveout" class="form-label">Student Name</label>
-                        <input type="text" class="form-control" id="reason_for_leaveout" name="student_name" readonly>
+                        <label for="student_name" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="student_name" name="student_name" readonly>
                     </div>
-
-                    <input type="hidden" id="registration_number" name="registration_number">
-                    <input type="hidden" id="student_name" name="student_name">
-
-
                     <div class="mb-3">
                         <label for="reason_for_leaveout" class="form-label">Reason for Leaveout</label>
                         <input type="text" class="form-control" id="reason_for_leaveout" name="reason_for_leaveout" required>
@@ -276,5 +291,39 @@ function dialogOpen() {
         }
     });
 </script>
+
+    <!-- Include Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#searchStudent').select2({
+                placeholder: 'Search for a student',
+                ajax: {
+                    url: '/api/search-students',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            searchText: params.term // search term
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data.results
+                        };
+                    },
+                    cache: true
+                },
+                minimumInputLength: 1
+            });
+
+            $('#searchStudent').on('select2:select', function (e) {
+                var data = e.params.data;
+                var studentDetails = data.text.split(' - ');
+                $('#reg_number').val(studentDetails[0]);
+                $('#student_name').val(studentDetails[1]);
+            });
+        });
+    </script>
 
 @endsection

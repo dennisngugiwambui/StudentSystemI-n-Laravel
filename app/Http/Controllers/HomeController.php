@@ -158,15 +158,7 @@ class HomeController extends Controller
         return view('Admin.Leaveout', compact('students'));
     }
 
-    public function searchStudents(Request $request)
-    {
-        $searchText = $request->query('searchText');
-        $students = StudentRegister::where('name', 'LIKE', "%{$searchText}%")
-            ->orWhere('id', 'LIKE', "%{$searchText}%")
-            ->get(['id', 'name']);
 
-        return response()->json($students);
-    }
 
 
 

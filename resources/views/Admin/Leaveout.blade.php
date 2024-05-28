@@ -64,7 +64,7 @@
         <div class="col-md-6">
             <div class="leaveout-form">
 
-                <form method="POST" action="{{ route('leaveout.store') }}">
+                <form method="" action="">
                     @csrf
 
                     <h1>LEAVEOUT SHEET</h1>
@@ -94,7 +94,7 @@
                         <label for="expected_return_time" class="form-label">Expected Return Time</label>
                         <input type="text" class="form-control" id="expected_return_time" name="expected_return_time" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button"  id="generateLetter" class="btn btn-primary"><i class="fa fa-file"></i> Submit</button>
                 </form>
             </div>
         </div>
@@ -156,15 +156,23 @@
                     const font = document.querySelector('.ql-font').value;
                     const align = document.querySelector('.ql-align').value;
                     const color = document.querySelector('.ql-color').value;
+
+                    // Get the current date and time
+                    const currentDate = new Date();
+                    const day = currentDate.getDate();
+                    const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(currentDate);
+                    const year = currentDate.getFullYear();
+                    const formattedDate = `${day}th ${month} ${year}`;
+                    const formattedTime = currentDate.toLocaleTimeString();
                     const letterTemplate = `
                         <div style="font-family: ${font}; color: ${color}; text-align: ${align}; white-space: pre-wrap;">
                             <h1>LEAVEOUT SHEET</h1>
-                            <p><strong>Date:</strong> September 9, 2023</p>
+                            <p><strong>Date:</strong> ${formattedDate}</p>
                             <p><strong>Student Name:</strong> [Student Name]</p>
                             <p><strong>Registration Number:</strong> [Registration Number]</p>
                             <p><strong>Reason for Leaveout:</strong> [Reason for Leaveout]</p>
                             <p><strong>Leaveout Request:</strong></p>
-                            <p>The above-mentioned student has been sent for leaveout permission due to <b>[Reason for Leaveout]</b>. The leaveout commenced on <b>[Current Date]</b> at <b>[Current Time]</b>. The student is expected to return after <b>[Expected Return Time]</b>. This form is issued to explain the circumstances of the leaveout.</p>
+                            <p>The above-mentioned student has been sent for leaveout permission due to <b>[Reason for Leaveout]</b>. The leaveout commenced on <b>${formattedDate}</b> at <b>${formattedTime}</b>. The student is expected to return after <b>[Expected Return Time]</b>. This form is issued to explain the circumstances of the leaveout.</p>
                             <p><strong>Principal/Deputy Signature:</strong> ____________________________________</p>
                             <p><strong>Date:</strong> ___________________</p>
                         </div>

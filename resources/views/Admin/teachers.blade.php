@@ -101,6 +101,7 @@
                     </tr>
                     </thead>
                     <tbody>
+{{--                    the loop to get the teacher data--}}
                     @foreach($teacher as $data)
                         <tr>
                             <td><input class="form-check-input" type="checkbox"></td>

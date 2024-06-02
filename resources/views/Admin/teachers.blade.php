@@ -97,7 +97,7 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Major</th>
-                        <th scope="col">Action</th
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>

@@ -89,7 +89,7 @@
                            placeholder="Search">
                 </div>
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
-                    <thead>
+                    <thead
                     <tr class="text-white">
                         <th scope="col"><input class="form-check-input" type="checkbox"></th>
                         <th scope="col">Name</th>

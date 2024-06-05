@@ -98,7 +98,7 @@
                                     <option value="form 2">Form 2</option>
                                     <option value="form 3">Form 3</option>
                                     <option value="form 4">Form 4</option>
-                                </select
+                                </select>
                             </div>
 
                             <div class="form-group">

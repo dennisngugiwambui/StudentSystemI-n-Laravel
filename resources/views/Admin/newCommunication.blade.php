@@ -91,7 +91,7 @@
                                 </select>
                             </div>
 
-                            <div class="form-group"
+                            <div class="form-group">
                                 <label for="formGroup">Form to include</label>
                                 <select class="form-control select2" id="formGroup" name="form_group[]" multiple="multiple" required>
                                     <option value="form 1">Form 1</option>

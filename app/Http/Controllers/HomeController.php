@@ -156,7 +156,6 @@ class HomeController extends Controller
     {
         $students=StudentRegister::all();
         return view('Admin.Leaveout', compact('students'));
-
     }
 
 

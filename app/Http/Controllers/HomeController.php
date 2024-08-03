@@ -145,6 +145,7 @@ class HomeController extends Controller
         $data=StudentRegister::all();
         return view('Admin.Punishment', compact('data'))
 
+
     }
 
     function Welfare()

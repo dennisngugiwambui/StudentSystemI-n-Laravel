@@ -151,7 +151,8 @@ class HomeController extends Controller
     {
         return view('Admin.welfare');
     }
-    
+
+
 
     function leaveout()
     {

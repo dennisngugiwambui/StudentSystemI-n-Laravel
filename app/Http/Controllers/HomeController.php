@@ -148,6 +148,7 @@ class HomeController extends Controller
     }
     function Welfare()
     {
+
         return view('Admin.welfare');
     }
 

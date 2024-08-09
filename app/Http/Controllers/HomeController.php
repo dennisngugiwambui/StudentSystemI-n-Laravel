@@ -146,7 +146,6 @@ class HomeController extends Controller
         return view('Admin.Punishment', compact('data'));
 
     }
-
     function Welfare()
     {
         return view('Admin.welfare');

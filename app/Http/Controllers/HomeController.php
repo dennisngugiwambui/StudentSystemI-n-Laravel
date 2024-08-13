@@ -161,7 +161,6 @@ class HomeController extends Controller
         $student= StudentRegister::all();
         return view('Admin.leadership', compact('data', 'student'));
     }
-
     public function new_teacher()
     {
         return view('Admin.newTeacher');

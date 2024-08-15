@@ -154,7 +154,7 @@ class HomeController extends Controller
         $students=StudentRegister::all();
         return view('Admin.Leaveout', compact('students'));
     }
-gh
+g
     public function leadership()
     {
         $data= Leadership::all();

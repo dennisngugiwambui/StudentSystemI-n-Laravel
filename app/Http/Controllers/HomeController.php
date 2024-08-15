@@ -150,13 +150,11 @@ class HomeController extends Controller
         return view('Admin.welfare');
     }
 
-
     function leaveout()
     {
         $students=StudentRegister::all();
         return view('Admin.Leaveout', compact('students'));
     }
-
     public function leadership()
     {
         $data= Leadership::all();

@@ -151,7 +151,6 @@ class HomeController extends Controller
     }
 
 
-
     function leaveout()
     {
         $students=StudentRegister::all();

@@ -157,8 +157,7 @@ class HomeController extends Controller
         return view('Admin.Leaveout', compact('students'));
     }
 
-
-
+    
     public function leadership()
     {
         $data= Leadership::all();

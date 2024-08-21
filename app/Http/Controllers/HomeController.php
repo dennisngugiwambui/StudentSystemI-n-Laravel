@@ -160,6 +160,7 @@ class HomeController extends Controller
 
 
 
+
     public function leadership()
     {
         $data= Leadership::all();

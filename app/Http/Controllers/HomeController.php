@@ -149,7 +149,6 @@ class HomeController extends Controller
     {
         return view('Admin.welfare');
     }
-
     function leaveout()
     {
         $students=StudentRegister::all();

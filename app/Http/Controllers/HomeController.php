@@ -202,6 +202,7 @@ class HomeController extends Controller
         return view('Admin.newCommunication');
     }
 
+
     public function EmployeeDetails($unique_id)
     {
        // $student = StudentRegister::with('skills')->where('unique_id', $unique_id)->first();

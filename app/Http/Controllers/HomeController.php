@@ -203,6 +203,7 @@ class HomeController extends Controller
     }
 
 
+
     public function EmployeeDetails($unique_id)
     {
        // $student = StudentRegister::with('skills')->where('unique_id', $unique_id)->first();

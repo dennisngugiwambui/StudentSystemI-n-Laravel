@@ -209,6 +209,7 @@ class HomeController extends Controller
         return view('Admin.EmployeeDetails', compact('employee'));
     }
 
+
 }
 
 

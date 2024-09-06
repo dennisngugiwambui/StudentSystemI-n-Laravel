@@ -208,7 +208,6 @@ class HomeController extends Controller
         $employee = Employee::where('unique_id', $unique_id)->first();
         return view('Admin.EmployeeDetails', compact('employee'));
 
-
 }
 
 

@@ -207,7 +207,7 @@ class HomeController extends Controller
         // $student = StudentRegister::with('skills')->where('unique_id', $unique_id)->first();
         $employee = Employee::where('unique_id', $unique_id)->first();
         return view('Admin.EmployeeDetails', compact('employee'));
-
+        return view('Admin.EmployeeDetails', compact('employee'));
 }
 
 

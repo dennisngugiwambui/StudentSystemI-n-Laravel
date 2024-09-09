@@ -202,7 +202,7 @@ class HomeController extends Controller
         return view('Admin.newCommunication');
     }
 
-    public login 
+    public func login
 
     public function EmployeeDetails($unique_id)
     {

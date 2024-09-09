@@ -203,6 +203,9 @@ class HomeController extends Controller
     }
 
     public function login ()
+    {
+    }
+}
 
     public function EmployeeDetails($unique_id)
     {

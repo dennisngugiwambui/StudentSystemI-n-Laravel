@@ -204,7 +204,7 @@ class HomeController extends Controller
 
     public function login ()
     {
-        //the lo
+        //the logim
     }
 
 

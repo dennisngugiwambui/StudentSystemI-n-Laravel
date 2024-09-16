@@ -15,6 +15,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+
         }
         .login-box {
             background-color: white;

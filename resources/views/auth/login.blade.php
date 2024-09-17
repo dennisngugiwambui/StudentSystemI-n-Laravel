@@ -24,7 +24,7 @@
             width: 350px;
         }
         .login-box h2 {
-            margin-bottom: 20px;
+            margin-bottom: 20px
         }
         .form-group {
             margin-bottom: 20px;

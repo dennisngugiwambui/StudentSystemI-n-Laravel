@@ -12,7 +12,7 @@
             background-position: center;
             display: flex;
             justify-content: center;
-            align-items: cente
+            align-items: cent
             height: 100vh;
             margin: 0;
         }

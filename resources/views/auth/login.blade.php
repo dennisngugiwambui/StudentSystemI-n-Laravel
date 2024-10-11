@@ -27,7 +27,7 @@
             margin-bottom: 20px;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 20px
         }
         .btn-login {
             background-color: #007bff;

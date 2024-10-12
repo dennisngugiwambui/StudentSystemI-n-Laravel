@@ -14,7 +14,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin:
+            margin: 0
         }
         .login-box {
             background-color: white;

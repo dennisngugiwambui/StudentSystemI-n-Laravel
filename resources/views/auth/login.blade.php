@@ -30,7 +30,7 @@
             margin-bottom: 20px;
         }
         .btn-login {
-            background-color: #007b
+            background-color: #007bf
             color: white;
         }
         .avatar {

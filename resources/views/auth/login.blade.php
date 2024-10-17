@@ -31,7 +31,7 @@
         }
         .btn-login {
             background-color: #007bff;
-            color: white
+            color: white;
         }
         .avatar {
             width: 100px;

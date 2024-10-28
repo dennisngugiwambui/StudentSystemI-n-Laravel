@@ -9,7 +9,7 @@
         body {
             background-image: url('https://www.nyandaruahighschool.co.ke/assets/images/283.jpg');
             background-size: cover;
-            background-position: cente
+            background-position: cent
             display: flex;
             justify-content: center;
             align-items: center;

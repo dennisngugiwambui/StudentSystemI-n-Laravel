@@ -188,7 +188,7 @@ class HomeController extends Controller
 
     public function Attedance()
     {
-        return view('Admin.Attedance')
+        return view('Admin.Attedance');
     }
 
     public function Examination()

@@ -193,7 +193,7 @@ class HomeController extends Controller
 
     public function Examination()
     {
-        return view('Admin.Examinatio');
+        return view('Admin.Examination');
     }
 
 

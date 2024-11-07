@@ -183,7 +183,7 @@ class HomeController extends Controller
 
     public function Management()
     {
-        return view('Admin.Management')
+        return view('Admin.Management');
     }
 
     public function Attedance()

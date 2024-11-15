@@ -1,3 +1,3 @@
 This is student system
-It includes mai
+It includes mainly
 

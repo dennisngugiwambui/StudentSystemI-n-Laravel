@@ -1,3 +1,3 @@
 This is student system
 
-It deals
+It deals with sll basic operations done by students
